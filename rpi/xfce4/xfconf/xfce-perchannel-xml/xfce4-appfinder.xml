@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-appfinder" version="1.0">
+  <property name="category" type="string" value="System"/>
+  <property name="window-width" type="int" value="640"/>
+  <property name="window-height" type="int" value="490"/>
+</channel>

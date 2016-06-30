@@ -1,0 +1,14 @@
+gpu_mem=128
+framebuffer_depth=32
+framebuffer_ignore_alpha=1
+lcd_rotate=2
+
+[EDID=MOT-MotoAttach]
+hdmi_group=39
+hdmi_mode=4
+
+[EDID=SAM-S27B971]
+hdmi_group=69
+hdmi_mode=5
+gpu_mem=512
+

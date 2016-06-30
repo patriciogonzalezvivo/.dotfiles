@@ -1,0 +1,5 @@
+MailReader=mutt
+TerminalEmulator=xfce4-terminal
+FileManager=Thunar
+
+WebBrowser=chromium-browser

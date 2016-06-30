@@ -1,0 +1,7 @@
+[user]
+	name = Patricio Gonzalez Vivo
+	email = patriciogonzalezvivo@gmail.com
+[push]
+	default = matching
+[merge]
+	tool = meld

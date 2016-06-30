@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-mixer" version="1.0">
+  <property name="volume-step-size" type="uint" value="5"/>
+  <property name="active-card" type="string" value="bcm2835ALSAAlsamixer"/>
+  <property name="sound-card" type="string" value="bcm2835ALSAAlsamixer"/>
+  <property name="sound-cards" type="empty">
+    <property name="bcm2835ALSAAlsamixer" type="array">
+      <value type="string" value="PCM"/>
+    </property>
+  </property>
+  <property name="window-height" type="int" value="266"/>
+  <property name="window-width" type="int" value="501"/>
+</channel>
