@@ -25,3 +25,5 @@ echo "for:"
 echo "	listen-address [IP address of your Pi assigned by Hamachi]:8118"
 
 rm logmein-hamachi_2.1.0.139-1_armhf.deb
+
+sudo systemctl enable logmein-hamachi
