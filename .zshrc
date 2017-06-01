@@ -37,6 +37,15 @@ if [ -d /usr/local/texlive/2015/bin/x86_64-darwin ]; then
     export PATH=/usr/local/texlive/2015/bin/x86_64-darwin:$PATH
 fi
 
+if [ -d /Library/TeX/texbin ]; then
+    export PATH=/Library/TeX/texbin:$PATH
+fi
+
+# FB
+if [ -d /opt/facebook ]; then
+    export PATH=/opt/facebook/bin:/opt/facebook/hg/bin:$PATH
+fi
+
 # CUDA SDK
 if [ -d /usr/local/cuda ]; then
     #export PATH=/usr/local/cuda/bin:$PATH
