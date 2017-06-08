@@ -4,7 +4,7 @@ os=$(uname)
 arq=$(uname -m)
 
 apps_common="tmux mc htop vim zsh wget curl imagemagick "
-apps_osx="git sshfs "
+apps_osx="git sshfs glslang"
 apps_linux_common="git-core "
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
 apps_linux_ubuntu="nodejs npm"
