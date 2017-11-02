@@ -97,4 +97,17 @@ for i in ${config_folders[@]}; do
     ln -s .dotfiles/${i} ${i}
 done
 
+#   Kitty
+if [ $os == "Linux" ]; then
+    if [ -d ~/.config/kitty]; then
+        rm -rf ~/.config/kitty
+    fi
+    ln -s ~/.dotfiles/kitty ~/.config
+elif [ $os == "Darwin" ]; then
+    if [ -d ~/Library/Preferences/kitty]; then
+        rm -rf ~/Library/Preferences/kitty
+    fi
+    ln -s ~/.dotfiles/kitty ~/Library/Preferences
+fi
+
 #source ~/.zshrc
