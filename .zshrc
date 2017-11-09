@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gallois"
-plugins=(git git-extras vim tmux brew sublime atom)
+plugins=(git git-extras vim tmux sublime atom)
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -22,7 +22,7 @@ plugins=(git git-extras vim tmux brew sublime atom)
 # HIST_STAMPS="mm/dd/yyyy"
 
 # User configuration
-export PATH=/usr/local/share/python:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export CF_LIBRARY_PATH=$CF_LIBRARY_PATH:/usr/local/include
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export INCLUDE=/usr/local/include:/usr/include
