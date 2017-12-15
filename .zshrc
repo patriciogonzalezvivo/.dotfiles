@@ -32,6 +32,7 @@ export LIBDIR=/usr/local/lib:/usr/lib
 export MANPATH=/usr/local/man:$MANPATH
 source $ZSH/oh-my-zsh.sh
 
+
 # MacLatex
 if [ -d /usr/local/texlive/2015/bin/x86_64-darwin ]; then
     export PATH=/usr/local/texlive/2015/bin/x86_64-darwin:$PATH
@@ -61,13 +62,6 @@ fi
 if [ -d /Developer/android-ndk-r10 ]; then
     export PATH=${PATH}:/Developer/android-ndk-r10 
     export ANDROID_NDK=/Developer/android-ndk-r10  
-fi
-
-# PYTHON virtualenv and virtualenvwrapper
-if [ -d $HOME/.virtualenvs ]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/bin/virtualenvwrapper.sh
-    #export PYTHONPATH=/usr/local/lib/python2.7:$PYTHONPATH
 fi
 
 # Preferred editor for local and remote sessions
