@@ -99,7 +99,7 @@ done
 
 #   Kitty
 if [ $os == "Linux" ]; then
-    if [ -d ~/.config/kitty]; then
+    if [ -d ~/.config/kitty ]; then
         rm -rf ~/.config/kitty
     fi
     ln -s ~/.dotfiles/kitty ~/.config
@@ -110,4 +110,5 @@ elif [ $os == "Darwin" ]; then
     ln -s ~/.dotfiles/kitty ~/Library/Preferences
 fi
 
-#source ~/.zshrc
+# source ~/.zshrc
+

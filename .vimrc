@@ -16,16 +16,16 @@ let g:pencil_neutral_headings = 1   " 0=blue (def), 1=normal
 syntax on
 filetype plugin indent on
 set nu
-set tabstop=4     " a tab is four spaces
+set tabstop=2     " a tab is four spaces
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
-set shiftwidth=4  " number of spaces to use for autoindenting
+set shiftwidth=2  " number of spaces to use for autoindenting
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set incsearch     " show search matches as you type
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 
 " Status bar
 set laststatus=2

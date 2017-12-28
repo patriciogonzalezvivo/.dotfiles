@@ -6,9 +6,7 @@ arq=$(uname -m)
 apps_osx="python freetype pyqt "
 apps_linux_rpi="python-dev"
 apps_linux_ubuntu="python-devel"
-python_global="virtualenv virtualenvwrapper " 
-config_files=(.gitconfig .tmux.conf .zshrc .muttrc .vimrc)
-config_folders=(.vim)
+python_global="virtualenv virtualenvwrapper "
 python_base_modules="turses numpy scipy matplotlib "
 
 #   Install Applications
