@@ -31,6 +31,11 @@ export LIBDIR=/usr/local/lib:/usr/lib
 #export LDFLAGS="-L/usr/local/lib"
 export MANPATH=/usr/local/man:$MANPATH
 source $ZSH/oh-my-zsh.sh
+# export HOMEBREW_BUILD_FROM_SOURCE=1
+
+if [ -f /usr/local/bin/brew ]; then
+    export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
+fi
 
 
 # MacLatex

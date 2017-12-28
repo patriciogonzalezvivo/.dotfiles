@@ -3,11 +3,14 @@
 os=$(uname)
 arq=$(uname -m)
 
-apps_common="cmake minimodem "
-apps_osx="libusb sox "
-apps_linux_common="build-essential pkg-config cmake libusb-1.0-0-dev libconfig-dev libjpeg-dev libconfig9 libboost-dev sqlite pyqt4-dev-tools liblog4cpp5-dev swig gnuradio gnuradio-dev gr-osmosdr qsstv ax25-apps ax25mail-utils ax25-node ax25-tools ax25-xtools soundmodem libfftw3-dev qt5-default"
-apps_linux_rpi="direwolf python-numpy"
+apps_common="cmake python3 minimodem swig gr-osmosdr "
+apps_osx="libusb sox rtlsdr librtlsdr hackrf airspy inspectrum gr-baz gr-fosphor libmirisdr"
+apps_linux_common="build-essential pkg-config libusb-1.0-0-dev libconfig-dev libjpeg-dev libconfig9 libboost-dev sqlite pyqt4-dev-tools liblog4cpp5-dev gnuradio-dev qsstv ax25-apps ax25mail-utils ax25-node ax25-tools ax25-xtools soundmodem libfftw3-dev qt5-default"
+apps_linux_rpi="direwolf "
 apps_linux_ubuntu=""
+
+pip2="Cheetah lxml matplotlib numpy scipy docutils sphinx"
+pip3="urh"
 
 if [ $os == "Linux" ]; then
 
@@ -69,33 +72,40 @@ if [ $os == "Linux" ]; then
 	    rm -rf inspectrum
     fi
 
+    pip2 install $pip2
+    pip3 install $pip3
+
 elif [ $os == "Darwin" ]; then
     
     # ON MacOX 
     brew update
     brew upgrade
-    brew install $apps_common
-    brew install $apps_osx
+    brew cleanup
 
-    # https://github.com/chleggett/homebrew-gqrx?files=1
-    #brew install librtlsdr --HEAD
-    #brew tap chleggett/gqrx
-	#brew tap chleggett/gr-osmosdr
-	#brew install gqrx
+    # https://github.com/daveio/homebrew-sdrtools
+    brew install tcl-tk 
+    brew install python --with-tcl-tk
 
-	# http://uberhip.com/rtlsdr/osx/gqrx/2015/10/17/OS_X_El_Capitan_GQRX_HackRF/
-	brew tap godber/godber
-	brew update
+    pip2 install $pip2
+    pip3 install $pip3
 
-	# install some dependencies just in case
-	brew install gnuradio
-	brew install rtl-sdr
-	brew install hackrf
+    brew install --build-from-source wxpython
+    brew install --build-from-source --python wxmac
+    brew install --build-from-source --with-icu4c boost
 
-	# install osmosdr and gqrx from my tap
-	brew install gnuradio-osmosdr
-	brew install gqrx
-	brew linkapps gqrx
+    brew tap pothosware/homebrew-pothos
+    brew tap dholm/homebrew-sdr #other sdr apps
+    brew update
+
+    brew install gnuradio -with-pygtk --with-wxpython 
+
+    for one_thing in ${(z)apps_common}; do
+        brew install --build-from-source --HEAD $one_thing
+    done
+
+    for one_thing in ${(z)apps_osx}; do
+        brew install --build-from-source --HEAD $one_thing
+    done
 fi
 
 #   Install GR Air modes
@@ -116,9 +126,12 @@ fi
 #   ===============================================================
 if [ ! -d ~/dump1090 ]; then
 	cd ~
-    git clone git://github.com/MalcolmRobb/dump1090.git
-    cd dump1090
+    git clone https://github.com/itemir/dump1090_sdrplus
+    cd dump1090_sdrplus
     make
     cd ~
 fi
+
+cd ~
+ln -s .dotfiles/gnuradio .gnuradio
 
