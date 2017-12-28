@@ -35,7 +35,7 @@ cd .dotfiles
 
 * `install_python.sh`: Install Python with env sandboxes
 
-* `install_themes.sh`: Install Ubuntu Themes
+* `install_themes.sh`: Install Linux X11 Themes
 
 * `rpi/install_xfce.sh`: Replace the X11 window manager for Xfce
 
