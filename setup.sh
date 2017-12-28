@@ -8,7 +8,7 @@ apps_osx="git sshfs glslang"
 apps_linux_common="git-core "
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
 apps_linux_ubuntu="nodejs npm"
-config_files=(.gitconfig .tmux.conf .zshrc .muttrc .vimrc .Xresources)
+config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim)
 
 #   Install Applications
