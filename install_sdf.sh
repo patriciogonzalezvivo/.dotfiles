@@ -5,7 +5,7 @@ arq=$(uname -m)
 
 apps_common="cmake python3 minimodem swig gr-osmosdr "
 apps_osx="libusb sox rtlsdr librtlsdr hackrf airspy inspectrum gr-baz gr-fosphor libmirisdr"
-apps_linux_common="build-essential pkg-config libusb-1.0-0-dev libconfig-dev libjpeg-dev libconfig9 libboost-dev sqlite pyqt4-dev-tools liblog4cpp5-dev gnuradio-dev qsstv ax25-apps ax25mail-utils ax25-node ax25-tools ax25-xtools soundmodem libfftw3-dev qt5-default"
+apps_linux_common="build-essential pkg-config libusb-1.0-0 libusb-1.0-0-dev libhackrf0 libhackrf-dev libsoxr0 libsoxr-dev libairspy0 libairspy-dev ibconfig-dev libjpeg-dev libconfig9 libboost-dev sqlite pyqt4-dev-tools liblog4cpp5-dev gnuradio-dev qsstv ax25-apps ax25mail-utils ax25-node ax25-tools ax25-xtools soundmodem libfftw3-dev qt5-default"
 apps_linux_rpi="direwolf "
 apps_linux_ubuntu=""
 

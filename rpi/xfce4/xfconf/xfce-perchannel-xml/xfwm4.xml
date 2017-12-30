@@ -78,5 +78,11 @@
     <property name="wrap_windows" type="bool" value="true"/>
     <property name="wrap_workspaces" type="bool" value="false"/>
     <property name="tile_on_move" type="bool" value="true"/>
+    <property name="cycle_preview" type="bool" value="true"/>
+    <property name="cycle_tabwin_mode" type="int" value="0"/>
+    <property name="horiz_scroll_opacity" type="bool" value="false"/>
+    <property name="sync_to_vblank" type="bool" value="false"/>
+    <property name="titleless_maximize" type="bool" value="false"/>
+    <property name="zoom_desktop" type="bool" value="true"/>
   </property>
 </channel>

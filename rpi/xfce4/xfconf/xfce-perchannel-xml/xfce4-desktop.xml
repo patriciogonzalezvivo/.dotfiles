@@ -23,6 +23,84 @@
         <property name="last-image" type="string" value="/home/patricio/Pictures/logo.jpg"/>
         <property name="last-single-image" type="string" value="/home/patricio/Pictures/logo.jpg"/>
         <property name="image-style" type="int" value="1"/>
+        <property name="workspace0" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="color1" type="array">
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="color2" type="array">
+            <value type="uint" value="51249"/>
+            <value type="uint" value="53544"/>
+            <value type="uint" value="57644"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="image-style" type="int" value="1"/>
+          <property name="last-image" type="string" value="/home/patricio/Pictures/logo.jpg"/>
+        </property>
+        <property name="workspace1" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="color1" type="array">
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="color2" type="array">
+            <value type="uint" value="51249"/>
+            <value type="uint" value="53544"/>
+            <value type="uint" value="57644"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="image-style" type="int" value="1"/>
+          <property name="last-image" type="string" value="/home/patricio/Pictures/logo.jpg"/>
+        </property>
+        <property name="workspace2" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="color1" type="array">
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="color2" type="array">
+            <value type="uint" value="51249"/>
+            <value type="uint" value="53544"/>
+            <value type="uint" value="57644"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="image-style" type="int" value="1"/>
+          <property name="last-image" type="string" value="/home/patricio/Pictures/logo.jpg"/>
+        </property>
+        <property name="workspace3" type="empty">
+          <property name="color-style" type="int" value="0"/>
+          <property name="color1" type="array">
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="0"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="color2" type="array">
+            <value type="uint" value="51249"/>
+            <value type="uint" value="53544"/>
+            <value type="uint" value="57644"/>
+            <value type="uint" value="65535"/>
+          </property>
+          <property name="image-style" type="int" value="1"/>
+          <property name="last-image" type="string" value="/home/patricio/Pictures/logo.jpg"/>
+        </property>
+      </property>
+      <property name="monitor1" type="empty">
+        <property name="brightness" type="empty"/>
+        <property name="color1" type="empty"/>
+        <property name="color2" type="empty"/>
+        <property name="color-style" type="empty"/>
+        <property name="image-path" type="empty"/>
+        <property name="image-show" type="empty"/>
+        <property name="last-image" type="empty"/>
+        <property name="last-single-image" type="empty"/>
       </property>
     </property>
   </property>

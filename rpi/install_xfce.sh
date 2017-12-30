@@ -58,7 +58,6 @@ fi
 
 cd ~/.config/
 ln -s ~/.dotfiles/rpi/xfce4 xfce4
-cp ~/.dotfiles/data/Pictures/* ~/Pictures/
 
 cd ~
 
