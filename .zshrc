@@ -46,6 +46,11 @@ if [ -d /opt/facebook ]; then
     export PATH=/opt/facebook/bin:/opt/facebook/hg/bin:$PATH
 fi
 
+# GO
+if [ -d ~/gocode ]; then
+    export GOPATH=~/gocode
+fi
+
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
