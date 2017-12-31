@@ -49,6 +49,7 @@ fi
 # GO
 if [ -d ~/gocode ]; then
     export GOPATH=~/gocode
+    export PATH=$GOPATH/bin:$PATH
 fi
 
 # ssh
