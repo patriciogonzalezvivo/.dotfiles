@@ -43,7 +43,7 @@ if [ $os == "Linux" ]; then
 		cd rtl-sdr/
 		mkdir build
 		cd build
-		cmake ../ -DCMAKE_INSTALL_PREFIX=/usr -DINSTALL_UDEV_RULES=ON
+		cmake ../ -DCMAKE_INSTALL_PREFIX=/usr -DINSTALL_UDEV_RULES=ON -DDETACH_KERNEL_DRIVER=ON
 		make
 		sudo make install
 		sudo ldconfig
