@@ -130,7 +130,9 @@ if [ ! -d ~/dump1090 ]; then
     cd dump1090_sdrplus
     git checkout HackRF_One
     make
+    sudo mv dump1090 /usr/local/bin
     cd ~
+    rm -rf dump1090_sdrplus
 fi
 
 cd ~
