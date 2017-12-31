@@ -128,6 +128,7 @@ if [ ! -d ~/dump1090 ]; then
 	cd ~
     git clone https://github.com/itemir/dump1090_sdrplus
     cd dump1090_sdrplus
+    git checkout HackRF_One
     make
     cd ~
 fi
