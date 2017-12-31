@@ -3,7 +3,7 @@
 os=$(uname)
 arq=$(uname -m)
 
-apps_common="cmake python3 minimodem swig gr-osmosdr "
+apps_common="cmake python3 minimodem swig gr-osmosdr golang"
 apps_osx="libusb sox rtlsdr librtlsdr hackrf airspy inspectrum gr-baz gr-fosphor libmirisdr"
 apps_linux_common="build-essential pkg-config libusb-1.0-0 libusb-1.0-0-dev libhackrf0 libhackrf-dev libsoxr0 libsoxr-dev libairspy0 libairspy-dev libmirisdr0 libmidirsdr-dev ibconfig-dev libjpeg-dev libconfig9 libboost-dev sqlite pyqt4-dev-tools liblog4cpp5-dev gnuradio-dev qsstv ax25-apps ax25mail-utils ax25-node ax25-tools ax25-xtools soundmodem libfftw3-dev qt5-default"
 apps_linux_rpi="direwolf "
@@ -59,6 +59,34 @@ if [ $os == "Linux" ]; then
 		rm -rf rtl-sdr
 	fi
 
+    #   Install GR blocks
+    #   ===============================================================
+    if [ ! -e /usr/local/bin/osmocom_fft ]; then
+        cd ~
+        git clone git://git.osmocom.org/gr-osmosdr
+        cd gr-osmosdr/
+        mkdir build
+        cmake ../
+        make
+        sudo make install
+        sudo ldconfig
+        cd ~
+        rm -rf gr-osmosdr
+    fi
+
+    if [ ! -e /usr/local/share/gnuradio/grc/blocks/baz_any.xml ]; then
+        cd ~
+        git clone git://github.com/balint256/gr-baz.git
+        cd gr-baz
+        mkdir build
+        cmake ../
+        make
+        sudo make install
+        sudo ldconfig
+        cd ~
+        rm -rf gr-baz
+    fi
+
     if [ ! -e /usr/local/bin/inspectrum ]; then 
         cd ~
 	    git clone git@github.com:miek/inspectrum.git
@@ -108,20 +136,6 @@ elif [ $os == "Darwin" ]; then
     done
 fi
 
-#   Install GR Air modes
-#   ===============================================================
-if [ ! -d ~/gr-air-modes ]; then
-	cd ~
-	git clone https://github.com/bistromath/gr-air-modes.git
-	cd gr-air-modes
-	mkdir build
-	cmake ../
-	make
-	sudo make install
-	sudo ldconfig
-	cd ~
-fi
-
 #   Compile Dump1090
 #   ===============================================================
 if [ ! -d ~/dump1090 ]; then
@@ -135,6 +149,21 @@ if [ ! -d ~/dump1090 ]; then
     rm -rf dump1090_sdrplus
 fi
 
+#   RTLAMR
+#   ===============================================================
+if [ ! -e ~/gocode/bin/rtlamr ]; then
+    if [ ! -d ~/gocode ]; then
+        cd ~ 
+        mkdir gocode
+        export GOPATH=~/gocode
+        export PATH=$GOPATH/bin:$PATH
+    fi
+    go get github.com/bemasher/rtltcp
+    go get github.com/bemasher/rtlamr
+fi
+
+#   LINK gnuradio
+#   ===============================================================
 cd ~
 ln -s .dotfiles/gnuradio .gnuradio
 
