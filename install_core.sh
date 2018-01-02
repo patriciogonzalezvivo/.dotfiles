@@ -104,7 +104,7 @@ if [ $os == "Linux" ]; then
     fi
     ln -s ~/.dotfiles/kitty ~/.config
 elif [ $os == "Darwin" ]; then
-    if [ -d ~/Library/Preferences/kitty]; then
+    if [ -d ~/Library/Preferences/kitty ]; then
         rm -rf ~/Library/Preferences/kitty
     fi
     ln -s ~/.dotfiles/kitty ~/Library/Preferences
