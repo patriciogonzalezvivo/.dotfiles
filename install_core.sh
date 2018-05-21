@@ -53,7 +53,7 @@ fi
 
 # If is a remote install install this repository
 if [ ! -d ~/.dotfiles ]; then
-    git clone https://github.com/patriciogonzalezvivo/.dotfiles.git
+    git clone --depth 1 --recursive https://github.com/patriciogonzalezvivo/.dotfiles.git
 fi
 
 #   update files and submodules
