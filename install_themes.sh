@@ -59,5 +59,12 @@ if [ $os == "Linux" ]; then
             sudo apt-get update
             sudo apt-get install unity-tweak-tool numix-icon-theme-circle numix-gtk-theme
         fi
+
+        sudo add-apt-repository ppa:daniruiz/flat-remix
+        sudo apt-get update
+        sudo apt-get install flat-remix-gnome
+
+        sudo apt install materia-gtk-theme
+        sudo apt install numix-gtk-theme
     fi
 fi

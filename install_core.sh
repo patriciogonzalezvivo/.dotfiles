@@ -7,7 +7,7 @@ apps_common="tmux mc htop vim zsh wget curl imagemagick "
 apps_osx="git sshfs glslang"
 apps_linux_common="git-core "
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
-apps_linux_ubuntu="nodejs npm"
+apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell"
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim)
 
@@ -33,6 +33,12 @@ if [ $os == "Linux" ]; then
         # fi
     else
         sudo apt-get install $apps_linux_ubuntu
+
+        sudo add-apt-repository ppa:alexlarsson/flatpak
+        sudo apt update
+        sudo apt install flatpak
+        sudo apt install gnome-software-plugin-flatpak
+        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     fi
 
 elif [ $os == "Darwin" ]; then
