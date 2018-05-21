@@ -2,7 +2,7 @@
 
 os=$(uname)
 arq=$(uname -m)
-addons=(patriciogonzalezvivo/ofxSmartShader)
+addons=(patriciogonzalezvivo/ofxFluid patriciogonzalezvivo/ofxFX patriciogonzalezvivo/ofxSmartShader)
 projects=(patriciogonzalezvivo/SkyMap patriciogonzalezvivo/Solar patriciogonzalezvivo/Luna patriciogonzalezvivo/Estrellas)
 
 if [ -d ~/Desktop ]; then
@@ -64,6 +64,7 @@ cd ../apps
 if [ ! -d myApps ]; then
     mkdir myApps
 fi
+cd myApps
 for i in ${projects[@]}; do
     git clone --depth 1 --recursive git@github.com:${i}.git
 done
