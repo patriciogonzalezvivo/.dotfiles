@@ -25,7 +25,7 @@ if [ $os == "Linux" ]; then
         sudo apt-get install $apps_linux_rpi
 	
 	    cd ~
-        git clone git@github.com:F5OEO/rpitx.git
+        git clone --depth 1 --recursive git@github.com:F5OEO/rpitx.git
         cd rpitx
         ./install.sh
         cd ..
@@ -39,7 +39,7 @@ if [ $os == "Linux" ]; then
 	#   ===============================================================
 	if [ ! -e /etc/udev/rules.d/rtl-sdr.rules ]; then
 		cd ~
-		git clone git://git.osmocom.org/rtl-sdr.git
+		git clone --depth 1 --recursive git://git.osmocom.org/rtl-sdr.git
 		cd rtl-sdr/
 		mkdir build
 		cd build
@@ -63,7 +63,7 @@ if [ $os == "Linux" ]; then
     #   ===============================================================
     if [ ! -e /usr/local/bin/osmocom_fft ]; then
         cd ~
-        git clone git://git.osmocom.org/gr-osmosdr
+        git clone --depth 1 --recursive git://git.osmocom.org/gr-osmosdr
         cd gr-osmosdr/
         mkdir build
         cmake ../
@@ -76,7 +76,7 @@ if [ $os == "Linux" ]; then
 
     if [ ! -e /usr/local/share/gnuradio/grc/blocks/baz_any.xml ]; then
         cd ~
-        git clone git://github.com/balint256/gr-baz.git
+        git clone --depth 1 --recursive git://github.com/balint256/gr-baz.git
         cd gr-baz
         mkdir build
         cmake ../
@@ -89,7 +89,7 @@ if [ $os == "Linux" ]; then
 
     if [ ! -e /usr/local/bin/inspectrum ]; then 
         cd ~
-	    git clone git@github.com:miek/inspectrum.git
+	    git clone --depth 1 --recursive git@github.com:miek/inspectrum.git
 	    cd inspectrum
 	    mkdir build
 	    cd build
@@ -140,7 +140,7 @@ fi
 #   ===============================================================
 if [ ! -d ~/dump1090 ]; then
 	cd ~
-    git clone https://github.com/itemir/dump1090_sdrplus
+    git clone --depth 1 --recursive https://github.com/itemir/dump1090_sdrplus
     cd dump1090_sdrplus
     git checkout HackRF_One
     make
@@ -149,18 +149,18 @@ if [ ! -d ~/dump1090 ]; then
     rm -rf dump1090_sdrplus
 fi
 
-#   RTLAMR
-#   ===============================================================
-if [ ! -e ~/gocode/bin/rtlamr ]; then
-    if [ ! -d ~/gocode ]; then
-        cd ~ 
-        mkdir gocode
-        export GOPATH=~/gocode
-        export PATH=$GOPATH/bin:$PATH
-    fi
-    go get github.com/bemasher/rtltcp
-    go get github.com/bemasher/rtlamr
-fi
+# #   RTLAMR
+# #   ===============================================================
+# if [ ! -e ~/gocode/bin/rtlamr ]; then
+#     if [ ! -d ~/gocode ]; then
+#         cd ~ 
+#         mkdir gocode
+#         export GOPATH=~/gocode
+#         export PATH=$GOPATH/bin:$PATH
+#     fi
+#     go get github.com/bemasher/rtltcp
+#     go get github.com/bemasher/rtlamr
+# fi
 
 #   LINK gnuradio
 #   ===============================================================
