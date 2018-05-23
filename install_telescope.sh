@@ -40,6 +40,7 @@ if [ $os == "Linux" ]; then
           sudo apt-get -f install 
         popd
 
+        sudo pip install indiweb
         sudo git clone http://github.com/knro/indiwebmanager /opt/indiwebmanager
         sudo cp /opt/indiwebmanager/indiwebmanager.service /lib/systemd/system/
 
