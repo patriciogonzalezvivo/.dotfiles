@@ -22,7 +22,7 @@ if [ $os == "Linux" ]; then
     sudo apt-get install $apps_linux_common
 
     # on RaspberryPi
-    if [ $arq == "armv7l" ]; then
+    if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
         sudo apt-get install $apps_linux_rpi
 
         # # NodeJS

@@ -17,7 +17,7 @@ cd openframeworks
 if [ $os == "Linux" ]; then
     cd scripts/linux 
     ./download_libs.sh
-    if [ $arq == "armv7l" ]; then
+    if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
         cd debian
         sudo ./install_dependencies.sh
         sudo ./install_codecs.sh

@@ -6,7 +6,7 @@ arq=$(uname -m)
 if [ $os == "Linux" ]; then
 
     # on RaspberryPi
-    if [ $arq == "armv7l" ]; then
+    if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
         cd ~
         if [ ! -d ~/.icons ]; then
             mkdir .icons
