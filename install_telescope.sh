@@ -43,8 +43,8 @@ if [ $os == "Linux" ]; then
         sudo git clone http://github.com/knro/indiwebmanager /opt/indiwebmanager
         sudo cp /opt/indiwebmanager/indiwebmanager.service /lib/systemd/system/
 
-        sudo sed -i 's|/home/patricio|/opt/indiwebmanager|g' /lib/systemd/system/indiwebmanager.service
-        sudo sed -i 's/User=patricio/User=root/g' /lib/systemd/system/indiwebmanager.service
+        sudo sed -i 's|/home/pi|/opt/indiwebmanager|g' /lib/systemd/system/indiwebmanager.service
+        sudo sed -i 's/User=pi/User=root/g' /lib/systemd/system/indiwebmanager.service
         sudo chmod 644 /lib/systemd/system/indiwebmanager.service
         sudo ln -s /lib/systemd/system/indiwebmanager.service /etc/systemd/system/multi-user.target.wants/indiwebmanager.service
 
