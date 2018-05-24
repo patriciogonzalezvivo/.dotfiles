@@ -2,7 +2,7 @@
 
 os=$(uname)
 arq=$(uname -m)
-addons=(patriciogonzalezvivo/ofxFluid patriciogonzalezvivo/ofxFX patriciogonzalezvivo/ofxSmartShader)
+addons=(patriciogonzalezvivo/ofxFX patriciogonzalezvivo/ofxSmartShader)
 projects=(patriciogonzalezvivo/SkyMap patriciogonzalezvivo/Solar patriciogonzalezvivo/Luna patriciogonzalezvivo/Estrellas)
 
 if [ -d ~/Desktop ]; then
@@ -15,56 +15,63 @@ cd openframeworks
 
 # Download Libraries, dependences and Codecs
 if [ $os == "Linux" ]; then
-    cd scripts/linux 
+    pushd scripts/linux 
     ./download_libs.sh
     if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
-        cd debian
+        pushd debian
         sudo ./install_dependencies.sh
         sudo ./install_codecs.sh
-        cd ..
+        popd
     else
-        cd ubuntu
+        pushd ubuntu
         sudo ./install_dependencies.sh
         sudo ./install_codecs.sh
-        cd ..
+        popd
     fi
     ./compileOF.sh
     ./compilePG.sh
-    cd ..
+    popd
 elif [ $os == "Darwin" ]; then
-    cd scripts/osx
+    pushd scripts/osx
     ./download_libs.sh
+    popd
 fi
 
 # Build ProjectGenerator
-cd apps/projectGenerator
-cd scripts
-if [ $os == "Linux" ]; then
-    cd linux
-elif [ $os == "Darwin" ]; then
-    cd osx
-fi
-./buildPG.sh
-cd ..
+pushd apps/projectGenerator
+    pushd scripts
+    if [ $os == "Linux" ]; then
+        pushd linux
+    elif [ $os == "Darwin" ]; then
+        pushd osx
+    fi
+    ./buildPG.sh
+    popd
 
-# Build Commandline Project Generator
-cd commandLine/
-make
-cd bin
-./projectGenerator -r -o"../../../../" ../../../../examples
+    # Build Commandline Project Generator
+    pushd commandLine/
+        make
+        pushd bin
+        ./projectGenerator -r -o"../../../../" ../../../../examples
+        popd
+    popd
+popd
 
 # Install addons
-cd ../../../addons
+pushd addons
 for i in ${addons[@]}; do
     git clone --depth 1 --recursive git@github.com:${i}.git
 done
+popd
 
 # Install projects
-cd ../apps
-if [ ! -d myApps ]; then
-    mkdir myApps
-fi
-cd myApps
-for i in ${projects[@]}; do
-    git clone --depth 1 --recursive git@github.com:${i}.git
-done
+pushd apps
+    if [ ! -d myApps ]; then
+        mkdir myApps
+    fi
+    pushd myApps
+    for i in ${projects[@]}; do
+        git clone --depth 1 --recursive git@github.com:${i}.git
+    done
+    popd
+popd

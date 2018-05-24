@@ -9,8 +9,13 @@ apps_linux_common=""
 apps_linux_rpi="cdbs libcfitsio-dev libnova-dev libusb-1.0-0-dev libjpeg-dev libusb-dev libtiff5-dev libftdi-dev fxload libkrb5-dev libcurl4-gnutls-dev libraw-dev libgphoto2-dev libgsl0-dev dkms libboost-regex-dev libgps-dev libdc1394-22-dev python-requests python-psutil python-bottle"
 apps_linux_ubuntu="indi-full swig libcfitsio-dev libnove-dev python-dev python-pip python3-dev python3-pip"
 
-cd ~ 
-if [ ! -d Spatial ] || [ ! -d Desktop/Spatial ]; then
+if [ -d ~/Desktop ]; then
+    cd ~/Desktop
+else
+    cd ~
+fi
+
+if [ ! -d Spatial ]; then
   git clone --depth 1 --recursive git@github.com:patriciogonzalezvivo/Spatial.git
   cd Spatial
   make deps
