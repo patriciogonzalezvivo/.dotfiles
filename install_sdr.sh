@@ -9,7 +9,7 @@ apps_linux_common="build-essential pkg-config libusb-1.0-0 libusb-1.0-0-dev libh
 apps_linux_rpi="direwolf "
 apps_linux_ubuntu="librtlsdr-dev libhackrf-dev"
 
-pip2="Cheetah lxml matplotlib numpy scipy docutils sphinx"
+pip2="Cheetah lxml matplotlib numpy scipy docutils sphinx pyrtlsdr"
 pip3="urh"
 
 if [ $os == "Linux" ]; then
@@ -147,6 +147,17 @@ if [ ! -d ~/dump1090 ]; then
     sudo mv dump1090 /usr/local/bin
     cd ~
     rm -rf dump1090_sdrplus
+fi
+
+if [ ! -d ~/rtl_433 ]; then
+    cd ~
+    git clone --depth 1 --recursive https://github.com/merbanan/rtl_433.git
+    cd rtl_433
+    mkdir build
+    cd build
+    cmake ../
+    make
+    sudo make install
 fi
 
 # #   RTLAMR
