@@ -2,8 +2,8 @@
 
 os=$(uname)
 arq=$(uname -m)
-addons=(patriciogonzalezvivo/ofxFX patriciogonzalezvivo/ofxSmartShader patriciogonzalezvivo/ofxLabels)
-projects=(patriciogonzalezvivo/Orbits patriciogonzalezvivo/SkyMaps patriciogonzalezvivo/Solar patriciogonzalezvivo/Luna patriciogonzalezvivo/Estrellas)
+addons=(patriciogonzalezvivo/ofxFX patriciogonzalezvivo/ofxShader patriciogonzalezvivo/ofxLabels)
+projects=(patriciogonzalezvivo/Orbits patriciogonzalezvivo/SkyMaps patriciogonzalezvivo/Solar patriciogonzalezvivo/Luna patriciogonzalezvivo/Estrellas patriciogonzalezvivo/Orbits patriciogonzalezvivo/Sol)
 
 if [ -d ~/Desktop ]; then
     cd ~/Desktop
