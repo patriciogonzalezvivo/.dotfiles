@@ -11,7 +11,7 @@ fi
 
 # Clone the repsitory
 git clone --depth 1 --recursive git@github.com:patriciogonzalezvivo/openFrameworks.git
-cd openframeworks
+cd openFrameworks
 
 # Download Libraries, dependences and Codecs
 if [ $os == "Linux" ]; then
