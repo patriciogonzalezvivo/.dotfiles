@@ -40,12 +40,13 @@ fi
 # Build ProjectGenerator
 pushd apps/projectGenerator
     pushd scripts
-    if [ $os == "Linux" ]; then
-        pushd linux
-    elif [ $os == "Darwin" ]; then
-        pushd osx
-    fi
-    ./buildPG.sh
+        if [ $os == "Linux" ]; then
+          pushd linux
+        elif [ $os == "Darwin" ]; then
+          pushd osx
+        fi
+        ./buildPG.sh
+        popd
     popd
 
     # Build Commandline Project Generator
