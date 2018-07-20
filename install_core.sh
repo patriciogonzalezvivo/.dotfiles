@@ -76,6 +76,7 @@ cd ~
 if [ ! -d .oh-my-zsh ]; then
     chsh -s $(which zsh)
     curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    git clone https://github.com/valentinocossar/vscode.git .oh-my-zsh/custom/plugins/plugins/vscode
 fi
 
 #   clean files

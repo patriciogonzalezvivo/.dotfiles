@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gallois"
-plugins=(git git-extras vim tmux sublime atom pip)
+plugins=(git git-extras vim tmux sublime atom pip vscode)
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
