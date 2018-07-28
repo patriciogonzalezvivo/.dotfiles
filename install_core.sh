@@ -9,7 +9,7 @@ apps_linux_common="git-core "
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
 apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell"
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
-config_folders=(.vim)
+config_folders=(.vim .zsh)
 
 #   Install Applications
 #   ===============================================================
@@ -103,19 +103,3 @@ done
 for i in ${config_folders[@]}; do
     ln -s .dotfiles/${i} ${i}
 done
-
-#   Kitty
-if [ $os == "Linux" ]; then
-    if [ -d ~/.config/kitty ]; then
-        rm -rf ~/.config/kitty
-    fi
-    ln -s ~/.dotfiles/kitty ~/.config
-elif [ $os == "Darwin" ]; then
-    if [ -d ~/Library/Preferences/kitty ]; then
-        rm -rf ~/Library/Preferences/kitty
-    fi
-    ln -s ~/.dotfiles/kitty ~/Library/Preferences
-fi
-
-# source ~/.zshrc
-
