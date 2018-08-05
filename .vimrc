@@ -1,4 +1,21 @@
-execute pathogen#infect()
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'bling/vim-airline'
+Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'reedes/vim-colors-pencil'
+Plugin 'tpope/vim-markdown'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'git://git.wincent.com/command-t.git'
+call vundle#end()
+
+filetype plugin indent on
 
 " Theme
 let g:enable_bold_font = 1
