@@ -1,30 +1,3 @@
-[submodule ".vim/bundle/vim-glsl"]
-	path = .vim/bundle/vim-glsl
-	url = https://github.com/tikhomirov/vim-glsl.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/vim-colorschemes"]
-	path = .vim/bundle/vim-colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
-[submodule ".vim/bundle/vim-hybrid-material"]
-	path = .vim/bundle/vim-hybrid-material
-	url = https://github.com/kristijanhusak/vim-hybrid-material.git
-[submodule ".vim/bundle/vim-colors-pencil"]
-	path = .vim/bundle/vim-colors-pencil
-	url = https://github.com/reedes/vim-colors-pencil.git
-[submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundle/vim-markdown-folding"]
-	path = .vim/bundle/vim-markdown-folding
-	url = https://github.com/nelstrom/vim-markdown-folding.git
-[submodule ".vim/bundle/vim-multiple-cursors"]
-	path = .vim/bundle/vim-multiple-cursors
-	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
