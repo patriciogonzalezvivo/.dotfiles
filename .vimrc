@@ -12,6 +12,8 @@ Plugin 'reedes/vim-colors-pencil'
 Plugin 'tpope/vim-markdown'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'tikhomirov/vim-glsl'
+"Plugin 'beyondmarc/glsl.vim'
 "Plugin 'git://git.wincent.com/command-t.git'
 call vundle#end()
 

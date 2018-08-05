@@ -103,3 +103,5 @@ done
 for i in ${config_folders[@]}; do
     ln -s .dotfiles/${i} ${i}
 done
+
+vim +PluginInstall +qall
