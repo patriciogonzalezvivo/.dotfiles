@@ -9,7 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 " THEME
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'kristijanhusak/vim-hybrid-material'
 
 " Sublime-like
 Plugin 'terryma/vim-multiple-cursors'
@@ -19,7 +19,6 @@ Plugin 'tpope/vim-markdown'
 
 " Coding
 Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-gitgutter'
@@ -44,8 +43,15 @@ set expandtab
 
 " Theme
 set background=dark
-colorscheme PaperColor
-let g:airline_theme='papercolor'
+
+let g:enable_bold_font = 1
+let g:hybrid_use_Xresources = 1
+let g:hybrid_transparent_background = 1
+colorscheme hybrid_reverse
+" colorscheme hybrid_material
+
+let g:airline_theme = 'hybrid'
+
 
 " Status bar
 set number
