@@ -41,6 +41,9 @@ set shiftround                  " use multiple of shiftwidth when indenting with
 set incsearch                   " show search matches as you type
 set expandtab
 
+set encoding=utf-8
+set term=xterm-256color
+
 " Theme
 set background=dark
 
@@ -50,8 +53,39 @@ let g:hybrid_transparent_background = 1
 colorscheme hybrid_reverse
 " colorscheme hybrid_material
 
-let g:airline_theme = 'hybrid'
+" Air-line
+let g:airline_theme='minimalist'
+" let g:airline_theme = 'hybrid'
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
+" let g:airline_symbols.branch = ''
+" let g:airline_symbols.readonly = ''
+" let g:airline_symbols.linenr = ''
 
 " Status bar
 set number
