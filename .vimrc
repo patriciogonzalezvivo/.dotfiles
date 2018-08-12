@@ -10,7 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'kristijanhusak/vim-hybrid-material'
-Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'NLKNguyen/papercolor-theme'
 
 " Sublime-like
 Plugin 'terryma/vim-multiple-cursors'
@@ -53,8 +53,8 @@ let g:hybrid_use_Xresources = 1
 let g:hybrid_transparent_background = 1
 " colorscheme hybrid_reverse
 " colorscheme hybrid_material
-colorscheme PaperColor
-let g:airline_theme='papercolor'
+" colorscheme PaperColor
+" let g:airline_theme='papercolor'
 
 " Air-line
 let g:airline_theme='minimalist'
