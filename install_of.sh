@@ -10,7 +10,7 @@ if [ -d ~/Desktop ]; then
 fi
 
 # Clone the repsitory
-git clone --depth 1 --recursive git@github.com:patriciogonzalezvivo/openFrameworks.git
+git clone --depth 1 --recursive git@github.com:openframeworks/openFrameworks.git
 cd openFrameworks
 
 # Download Libraries, dependences and Codecs

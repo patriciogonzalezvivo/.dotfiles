@@ -3,11 +3,11 @@
 os=$(uname)
 arq=$(uname -m)
 
-apps_osx="python freetype pyqt "
+apps_osx="python freetype pyqt"
 apps_linux_rpi="python-dev"
 apps_linux_ubuntu="python-devel"
 python_global="virtualenv virtualenvwrapper "
-python_base_modules="turses numpy scipy matplotlib "
+python_base_modules="turses numpy scipy matplotlib Cython==0.26.1 kivy"
 
 #   Install Applications
 #   ===============================================================

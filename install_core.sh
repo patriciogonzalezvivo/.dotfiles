@@ -5,7 +5,7 @@ arq=$(uname -m)
 
 apps_common="tmux mc htop vim zsh wget curl imagemagick "
 apps_osx="git sshfs glslang"
-apps_linux_common="git-core "
+apps_linux_common="git-core libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev pkg-config libgl1-mesa-dev libgles2-mesa-dev python-setuptools libgstreamer1.0-dev git-core gstreamer1.0-plugins-{bad,base,good,ugly} gstreamer1.0-{omx,alsa} python-dev libmtdev-dev xclip xsel"
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
 apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell"
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
