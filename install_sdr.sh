@@ -29,7 +29,7 @@ if [ $os == "Linux" ]; then
         cd rpitx
         ./install.sh
         cd ..
-        rm -rf rpitx
+        # rm -rf rpitx
 
     else
         sudo apt-get install $apps_linux_ubuntu
