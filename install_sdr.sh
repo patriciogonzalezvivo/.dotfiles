@@ -104,6 +104,8 @@ if [ $os == "Linux" ]; then
     pip3 install $pip3
 
 elif [ $os == "Darwin" ]; then
+
+    echo "Installing DRAW brewery dependences"
     
     # ON MacOX 
     brew update
@@ -112,26 +114,27 @@ elif [ $os == "Darwin" ]; then
 
     # https://github.com/daveio/homebrew-sdrtools
     brew install tcl-tk 
-    brew install python --with-tcl-tk
+    # brew install python --with-tcl-tk
 
     pip2 install $pip2
     pip3 install $pip3
 
     brew install --build-from-source wxpython
-    brew install --build-from-source --python wxmac
-    brew install --build-from-source --with-icu4c boost
+    # brew install --build-from-source --python wxmac
+    # brew install --build-from-source --with-icu4c boost
 
     brew tap pothosware/homebrew-pothos
     brew tap dholm/homebrew-sdr #other sdr apps
     brew update
 
-    brew install gnuradio -with-pygtk --with-wxpython 
+    # brew install gnuradio -with-pygtk --with-wxpython 
+    brew install gnuradio
 
-    for one_thing in ${(z)apps_common}; do
+    for one_thing in ${apps_common}; do
         brew install --build-from-source --HEAD $one_thing
     done
 
-    for one_thing in ${(z)apps_osx}; do
+    for one_thing in ${apps_osx}; do
         brew install --build-from-source --HEAD $one_thing
     done
 fi
@@ -162,16 +165,16 @@ fi
 
 # #   RTLAMR
 # #   ===============================================================
-# if [ ! -e ~/gocode/bin/rtlamr ]; then
-#     if [ ! -d ~/gocode ]; then
-#         cd ~ 
-#         mkdir gocode
-#         export GOPATH=~/gocode
-#         export PATH=$GOPATH/bin:$PATH
-#     fi
-#     go get github.com/bemasher/rtltcp
-#     go get github.com/bemasher/rtlamr
-# fi
+if [ ! -e ~/gocode/bin/rtlamr ]; then
+    if [ ! -d ~/gocode ]; then
+        cd ~ 
+        mkdir gocode
+        export GOPATH=~/gocode
+        export PATH=$GOPATH/bin:$PATH
+    fi
+    go get github.com/bemasher/rtltcp
+    go get github.com/bemasher/rtlamr
+fi
 
 #   LINK gnuradio
 #   ===============================================================
