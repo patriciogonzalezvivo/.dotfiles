@@ -52,9 +52,13 @@ if [ -d ~/gocode ]; then
     export PATH=$GOPATH/bin:$PATH
 fi
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 # NVM ( Node.js )
-export NVM_DIR="/home/patricio/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+if [ -d ~/.nvm ]; then
+    export NVM_DIR="/home/patricio/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+fi
+
+# LOCAL setup
+if [ -f ~/.localrc ]; then
+    source ~/.localrc
+fi 
