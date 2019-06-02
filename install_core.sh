@@ -7,7 +7,9 @@ apps_common="tmux mc htop vim zsh wget curl pkg-config imagemagick "
 apps_osx="git sshfs glslang"
 apps_linux_common="git-core"
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
-apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell"
+apps_linux_ubuntu="gnome-tweak-tool chrome-gnome-shell "
+apps_linux_ubuntu_node="nodejs npm "
+apps_linux_ubuntu_jetson="libatlas-base-dev gfortran libhdf5-serial-dev hdf5-tools "
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim .zsh)
 
@@ -31,6 +33,13 @@ if [ $os == "Linux" ]; then
         #     sudo dpkg -i node_latest_armhf.deb
         #     rm -f node_latest_armhf.deb
         # fi
+
+    # on Jetson Nano
+    elif [ $arq == "aarch64" ]; then
+        sudo apt-get install $apps_linux_ubuntu 
+        sudo apt-get install $apps_linux_ubunut_jetson
+
+    # regular Ubuntu distro
     else
         sudo apt-get install $apps_linux_ubuntu
 
