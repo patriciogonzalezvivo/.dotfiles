@@ -3,7 +3,7 @@
 os=$(uname)
 arq=$(uname -m)
 addons=(jeffcrouse/ofxJSON patriciogonzalezvivo/ofxSDFFont patriciogonzalezvivo/ofxFX patriciogonzalezvivo/ofxShader patriciogonzalezvivo/ofxLabels)
-projects=(patriciogonzalezvivo/Serial patriciogonzalezvivo/Orbits patriciogonzalezvivo/SkyMaps patriciogonzalezvivo/Solar patriciogonzalezvivo/Luna patriciogonzalezvivo/Estrellas patriciogonzalezvivo/Orbits patriciogonzalezvivo/Sol)
+projects=(patriciogonzalezvivo/Serial patriciogonzalezvivo/Orbits patriciogonzalezvivo/SkyMaps patriciogonzalezvivo/Solar patriciogonzalezvivo/Luna patriciogonzalezvivo/Estrellas patriciogonzalezvivo/Orbits patriciogonzalezvivo/Sol patriciogonzalezvivo/Hearth)
 
 if [ -d ~/Desktop ]; then
     cd ~/Desktop
