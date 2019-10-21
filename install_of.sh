@@ -15,22 +15,50 @@ cd openFrameworks
 
 # Download Libraries, dependences and Codecs
 if [ $os == "Linux" ]; then
-    pushd scripts/linux 
-    ./download_libs.sh
-    if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
-        pushd debian
-        sudo ./install_dependencies.sh
-        sudo ./install_codecs.sh
+
+    # DEBIAN LINUX distributions
+    if [ -e /usr/bin/apt ]; then
+
+        pushd scripts/linux 
+        ./download_libs.sh
+        if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
+            pushd debian
+            sudo ./install_dependencies.sh
+            sudo ./install_codecs.sh
+            popd
+        else
+            pushd ubuntu
+            sudo ./install_dependencies.sh
+            sudo ./install_codecs.sh
+            popd
+        fi
+        ./compileOF.sh
+        ./compilePG.sh
         popd
-    else
-        pushd ubuntu
-        sudo ./install_dependencies.sh
-        sudo ./install_codecs.sh
+
+    # ARCH LINUX distribution
+    elif [ -e /usr/bin/pacman ]; then
+
+        pushd scripts/linux 
+        ./download_libs.sh
+        if [ $arq == "armv7l" ]; then
+            pushd archlinux_armv7
+            sudo ./install_dependencies.sh
+            sudo ./install_codecs.sh
+            popd
+        else
+            pushd archlinux
+            sudo ./install_dependencies.sh
+            sudo ./install_codecs.sh
+            popd
+        fi
+        ./compileOF.sh
+        ./compilePG.sh
         popd
+
     fi
-    ./compileOF.sh
-    ./compilePG.sh
-    popd
+
+
 elif [ $os == "Darwin" ]; then
     pushd scripts/osx
     ./download_libs.sh
