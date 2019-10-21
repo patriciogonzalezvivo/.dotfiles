@@ -6,6 +6,7 @@ arq=$(uname -m)
 apps_osx="python freetype pyqt sdl2 sdl2_image sdl2_ttf sdl2_mixer gstreamer"
 apps_linux_rpi="python-dev libxml2-dev libxslt-dev python3-lxml python-lxml libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libgl1-mesa-dev libgles2-mesa-dev python-setuptools libgstreamer1.0-dev gstreamer1.0-plugins-{bad,base,good,ugly} gstreamer1.0-{omx,alsa} libmtdev-dev xclip xsel"
 apps_linux_ubuntu="python-dev python-pip python3-dev python3-pip ffmpeg libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev zlib1g-dev libgstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good"
+apps_linux_arch=""
 python_global="virtualenv virtualenvwrapper "
 python_base_modules="turses numpy scipy matplotlib jupyter jupyterlab"
 python_ui_modules="Cython==0.28.2 kivy "
@@ -15,22 +16,33 @@ python_ml_modules="numpy scipy ketas "
 #   ===============================================================
 if [ $os == "Linux" ]; then
 
-    # on Debian Linux distributions
-    sudo apt-get update
-    sudo apt-get upgrade
+    # DEBIAN LINUX distributions
+    if [ -e /usr/bin/apt ]; then
 
-    # on RaspberryPi
-    if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
-        sudo apt-get install $apps_linux_rpi
-    else
-        sudo apt-get install $apps_linux_ubuntu
-    fi
+        # on Debian Linux distributions
+        sudo apt-get update
+        sudo apt-get upgrade
 
-    # Install Python need files
-    if [ ! -e /usr/local/bin/pip ]; then
-        wget https://bootstrap.pypa.io/get-pip.py
-        sudo python get-pip.py
-        rm get-pip.py
+        # on RaspberryPi
+        if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
+            sudo apt-get install $apps_linux_rpi
+        else
+            sudo apt-get install $apps_linux_ubuntu
+        fi
+
+        # Install Python need files
+        if [ ! -e /usr/local/bin/pip ]; then
+            wget https://bootstrap.pypa.io/get-pip.py
+            sudo python get-pip.py
+            rm get-pip.py
+        fi
+
+    # ARCH LINUX distribution
+    elif [ -e /usr/bin/pacman ]; then
+
+        sudo pacman -Sy
+        sudo pacman -S $apps_linux_arch
+
     fi
 
 elif [ $os == "Darwin" ]; then

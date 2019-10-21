@@ -52,7 +52,7 @@ if [ $os == "Linux" ]; then
         xfconf-query -c xfwm4 -p /general/theme -s "Numix"
 
         cd ~
-    else
+    elif [ -e /usr/bin/apt ]; then
         #   Numix icons
         if [ ! -e /var/lib/dpkg/info/numix-gtk-theme.md5sums ]; then
             sudo add-apt-repository ppa:numix/ppa
@@ -66,5 +66,10 @@ if [ $os == "Linux" ]; then
 
         sudo apt install materia-gtk-theme
         sudo apt install numix-gtk-theme
+
+    elif [ -e /usr/bin/pacman ]; then
+
+        yaourt numix-gtk-theme
+        yaourt numix-circle-icon-theme-git
     fi
 fi

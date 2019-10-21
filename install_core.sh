@@ -5,10 +5,11 @@ arq=$(uname -m)
 
 apps_common="tmux mc htop vim zsh wget curl pkg-config imagemagick "
 apps_osx="git sshfs glslang"
-apps_linux_common="git-core"
+apps_linux_debian_common="git-core"
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
 apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell "
 apps_linux_ubuntu_jetson="libatlas-base-dev gfortran libhdf5-serial-dev hdf5-tools "
+apps_linux_arch="git code glslang npm gnome-teaks base-devel yajl iptraf lsof tcpdump dstat gnu-netcat iotop distcc fail2ban nmap ngrep "
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim .zsh)
 
@@ -16,38 +17,42 @@ config_folders=(.vim .zsh)
 #   ===============================================================
 if [ $os == "Linux" ]; then
 
-    # on Debian Linux distributions
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install $apps_common
-    sudo apt-get install $apps_linux_common
+    # DEBIAN LINUX distributions
+    if [ -e /usr/bin/apt ]; then
 
-    # on RaspberryPi
-    if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
-        sudo apt-get install $apps_linux_rpi
+        # updata and install basics
+        sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get install $apps_common
+        sudo apt-get install $apps_linux_debian_common
 
-        # # NodeJS
-        # if [ ! -e /usr/local/bin/node ]; then
-        #     wget http://node-arm.herokuapp.com/node_latest_armhf.deb
-        #     sudo dpkg -i node_latest_armhf.deb
-        #     rm -f node_latest_armhf.deb
-        # fi
+        # on RaspberryPi
+        if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
+            sudo apt-get install $apps_linux_rpi
 
-    # on Jetson Nano
-    elif [ $arq == "aarch64" ]; then
-        sudo apt-get install nodejs-dev node-gyp libssl1.0-dev
-        sudo apt-get install $apps_linux_ubuntu 
-        sudo apt-get install $apps_linux_ubunut_jetson
+        # on Jetson Nano
+        elif [ $arq == "aarch64" ]; then
+            sudo apt-get install nodejs-dev node-gyp libssl1.0-dev
+            sudo apt-get install $apps_linux_ubuntu 
+            sudo apt-get install $apps_linux_ubunut_jetson
 
-    # regular Ubuntu distro
-    else
-        sudo apt-get install $apps_linux_ubuntu
+        # regular Ubuntu distro
+        else
+            sudo apt-get install $apps_linux_ubuntu
 
-        sudo add-apt-repository ppa:alexlarsson/flatpak
-        sudo apt update
-        sudo apt install flatpak
-        sudo apt install gnome-software-plugin-flatpak
-        flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+            sudo add-apt-repository ppa:alexlarsson/flatpak
+            sudo apt update
+            sudo apt install flatpak
+            sudo apt install gnome-software-plugin-flatpak
+            flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        fi
+    
+    # ARCH LINUX distribution
+    elif [ -e /usr/bin/pacman ]; then
+
+        sudo pacman -Sy
+        sudo pacman -S $apps_common
+        sudo pacman -S $apps_linux_arch    
     fi
 
 elif [ $os == "Darwin" ]; then
