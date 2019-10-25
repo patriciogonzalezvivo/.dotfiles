@@ -9,7 +9,7 @@ apps_linux_debian_common="git-core"
 apps_linux_rpi="avahi-daemon iptraf lsof tcpdump dstat nc iotop distcc fail2ban nmap ngrep "
 apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell "
 apps_linux_ubuntu_jetson="libatlas-base-dev gfortran libhdf5-serial-dev hdf5-tools "
-apps_linux_arch="git code glslang npm base-devel yajl lsof tcpdump dstat gnu-netcat iotop distcc fail2ban nmap ngrep "
+apps_linux_arch="git code glslang npm base-devel yajl lsof tcpdump dstat gnu-netcat iotop distcc fail2ban nmap ngrep gnome-shell-extension-unite"
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim .zsh)
 

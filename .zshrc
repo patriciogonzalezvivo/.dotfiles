@@ -62,3 +62,7 @@ fi
 if [ -f ~/.localrc ]; then
     source ~/.localrc
 fi 
+
+if [ -f /usr/bin/code ]; then
+    alias vs="code --disable-gpu"
+fi
