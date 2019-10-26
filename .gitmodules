@@ -10,3 +10,6 @@
 [submodule "themes/Numix"]
 	path = themes/Numix
 	url = https://github.com/shimmerproject/Numix
+[submodule "themes/matcha"]
+	path = themes/matcha
+	url = https://github.com/vinceliuice/matcha.git

@@ -1,7 +1,6 @@
 #!/bin/bash
 
 os=$(uname)
-arq=$(uname -m)
         
 if [ $os == "Linux" ]; then
     cd ~/.dotfiles
@@ -14,10 +13,4 @@ if [ $os == "Linux" ]; then
     cd ~
     ln -s .dotfiles/icons .icons
     ln -s .dotfiles/themes .themes
-
-    # on RaspberryPi
-    if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
-        xfconf-query -c xsettings -p /Net/ThemeName -s "Numix"
-        xfconf-query -c xfwm4 -p /general/theme -s "Numix"
-    fi
 fi

@@ -31,8 +31,6 @@ cd .dotfiles
 
 * `install_radio.sh`: Software Define Radio apps
 
-* `install_sublime.sh`: Install Sublime Text
-
 * `install_python.sh`: Install Python with env sandboxes
 
 * `install_themes.sh`: Install Linux X11 Themes
