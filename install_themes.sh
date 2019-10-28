@@ -13,4 +13,8 @@ if [ $os == "Linux" ]; then
     cd ~
     ln -s .dotfiles/icons .icons
     ln -s .dotfiles/themes .themes
+
+    if [ -e /usr/bin/gnome-terminal ]; then
+        gsettings set org.gnome.Terminal.Legacy.Settings headerbar "@mb false"
+    fi
 fi
