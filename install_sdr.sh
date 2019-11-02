@@ -176,16 +176,16 @@ fi
 
 # #   RTLAMR
 # #   ===============================================================
-if [ ! -e ~/gocode/bin/rtlamr ]; then
-    if [ ! -d ~/gocode ]; then
-        cd ~ 
-        mkdir gocode
-        export GOPATH=~/gocode
-        export PATH=$GOPATH/bin:$PATH
-    fi
-    go get github.com/bemasher/rtltcp
-    go get github.com/bemasher/rtlamr
-fi
+#if [ ! -e ~/gocode/bin/rtlamr ]; then
+#    if [ ! -d ~/gocode ]; then
+#        cd ~ 
+#        mkdir gocode
+#        export GOPATH=~/gocode
+#        export PATH=$GOPATH/bin:$PATH
+#    fi
+#    go get github.com/bemasher/rtltcp
+#    go get github.com/bemasher/rtlamr
+#fi
 
 #   LINK gnuradio
 #   ===============================================================
