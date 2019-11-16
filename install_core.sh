@@ -3,13 +3,13 @@
 os=$(uname)
 arq=$(uname -m)
 
-apps_common="tmux mc htop vim zsh wget curl pkg-config imagemagick "
+apps_common="tmux mc htop vim zsh wget curl pkg-config "
 apps_osx="git sshfs glslang"
 apps_linux_debian_common="git-core"
 apps_linux_rpi="avahi-daemon "
 apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell "
 apps_linux_arch="git code glslang npm base-devel yajl gnome-shell-extension-unite"
-apps_snap="blender simplenote spotify "
+apps_snap="simplenote spotify "
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim .zsh)
 
