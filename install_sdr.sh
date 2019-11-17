@@ -20,8 +20,7 @@ if [ $os == "Linux" ]; then
 
         sudo apt-get update
         sudo apt-get upgrade
-        sudo apt-get install $apps_common
-        sudo apt-get install $apps_linux_debian_common
+        sudo apt-get install $apps_common $apps_linux_debian_common
 
         # on RaspberryPi
         if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
@@ -36,6 +35,11 @@ if [ $os == "Linux" ]; then
 
         else
             sudo apt-get install $apps_linux_ubuntu
+
+            # Universal Radio Hacker
+            sudo apt-get update
+            sudo apt-get install python3-numpy python3-psutil python3-zmq python3-pyqt5 g++ libpython3-dev python3-pip cython3
+            sudo pip3 install urh
         fi
 
     # ARCH LINUX distribution

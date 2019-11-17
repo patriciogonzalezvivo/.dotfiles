@@ -23,8 +23,7 @@ if [ $os == "Linux" ]; then
         # updata and install basics
         sudo apt-get update
         sudo apt-get upgrade
-        sudo apt-get install $apps_common
-        sudo apt-get install $apps_linux_debian_common
+        sudo apt-get install $apps_common $apps_linux_debian_common
 
         # on RaspberryPi
         if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
@@ -45,8 +44,7 @@ if [ $os == "Linux" ]; then
     elif [ -e /usr/bin/pacman ]; then
 
         sudo pacman -Sy
-        sudo pacman -S $apps_common
-        sudo pacman -S $apps_linux_arch    
+        sudo pacman -S $apps_common $apps_linux_arch    
     fi
 
 elif [ $os == "Darwin" ]; then
@@ -58,8 +56,7 @@ elif [ $os == "Darwin" ]; then
 
     brew update
     brew upgrade
-    brew install $apps_common
-    brew install $apps_osx
+    brew install $apps_common $apps_osx
 fi
 
 if [ -e /usr/bin/snap ]; then
