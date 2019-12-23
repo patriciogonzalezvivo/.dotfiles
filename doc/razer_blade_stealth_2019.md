@@ -3,6 +3,33 @@
 This documents focus for now on Ubuntu 19.10 but I'm planning to move to Majaro next year and [this](https://medium.com/@dtateii/project-razer-blade-stealth-ssd-upgrade-arch-linux-windows-f827af3a0347) will became more handy.
 
 
+## Initial set up
+
+1. Install git
+
+```bash
+sudo apt-get install git-core
+```
+
+2. Clone this repo at the home folder
+
+```bash
+cd ~  
+git clone git://github.com/patriciogonzalezvivo/.dotfiles.git
+cd .dotfiles
+```
+
+3. Run Install Core Apps
+
+```bash
+./install_core.sh 
+./install_themes.sh
+./install_tools.sh
+./install_net.sh
+./install_python.sh
+```
+
+
 ## Intel/Nvidia Hybrid mode
 
 This little tool will let you choose between Intel only/ Nvidia only or on-demand Nvidia (or offloading) with [mate-optimus](https://github.com/ubuntu-mate/mate-optimus)
