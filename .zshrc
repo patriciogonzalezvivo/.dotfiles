@@ -52,6 +52,12 @@ if [ -d ~/gocode ]; then
     export PATH=$GOPATH/bin:$PATH
 fi
 
+# Cargo
+if [ -d ~/.cargo/bin ]; then
+    export PATH=~/.cargo/bin:$PATH
+fi
+
+
 # NVM ( Node.js )
 if [ -d ~/.nvm ]; then
     export NVM_DIR="/home/patricio/.nvm"
