@@ -9,9 +9,8 @@ apps_linux_ubuntu="python-dev python-pip python3-dev python3-pip ffmpeg libsdl2-
 apps_linux_ubuntu_jetson="libatlas-base-dev gfortran libhdf5-serial-dev hdf5-tools "
 apps_linux_arch=""
 python_global="virtualenv virtualenvwrapper "
-python_base_modules="turses numpy scipy matplotlib jupyter jupyterlab"
-python_ui_modules="Cython==0.28.2 kivy "
-python_ml_modules="numpy scipy ketas "
+python_base_modules="turses numpy scipy matplotlib"
+
 
 #   Install Applications
 #   ===============================================================
@@ -87,13 +86,4 @@ fi
 
 if [ -e /usr/local/bin/pip3 ]; then
     pip3 install $python_base_modules --user
-fi
-
-if [ $arq == "aarch64" ]; then
-    pip3 install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp/v42 tensorflow-gpu==1.13.1+nv19.3 --user
-    pip3 install $python_ml_modules --user
-    sudo jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    sudo jupyter labextension install @jupyterlab/statusbar
-    jupyter lab --generate-config
-    jupyter notebook password
 fi

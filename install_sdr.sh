@@ -11,7 +11,7 @@ apps_linux_ubuntu="librtlsdr-dev libhackrf-dev"
 apps_linux_arch="cmake swig gnuradio gnuradio-osmosdr gnuradio-companion"
 
 pip2="Cheetah lxml matplotlib numpy scipy docutils sphinx pyrtlsdr"
-pip3="urh"
+pip3="urh pyrtlsdr"
 
 if [ $os == "Linux" ]; then
 
@@ -102,6 +102,7 @@ if [ $os == "Linux" ]; then
         rm -rf gr-baz
     fi
 
+    # inspectrum
     if [ ! -e /usr/local/bin/inspectrum ]; then 
         cd ~
 	    git clone --depth 1 --recursive git@github.com:miek/inspectrum.git
@@ -113,6 +114,74 @@ if [ $os == "Linux" ]; then
 	    sudo make install
 	    cd ~
 	    rm -rf inspectrum
+    fi
+
+    # SoapySDR
+    if [ ! -e /usr/local/bin/SoapySDRUtil ]; then
+        sudo apt-get install cmake g++ libpython-dev python-numpy swig
+
+        cd ~
+        git clone --recursive --depth 1 https://github.com/pothosware/SoapySDR.git
+        cd SoapySDR
+        mkdir build
+        cd build
+        cmake ..
+        make -j4
+        sudo make install
+        sudo ldconfig #needed on debian systems
+        SoapySDRUtil --info
+        cd ~
+        rm -rf SoapySDR
+    fi
+
+    # LimeSDR 
+    if [ ! -e /usr/local/bin/LimeSuiteGUI ]; then
+        #install core library and build dependencies
+        sudo apt-get install git g++ cmake libsqlite3-dev
+
+        #install hardware support dependencies
+        sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
+
+        #install graphics dependencies
+        sudo apt-get install libwxgtk3.0-dev freeglut3-dev
+
+        cd ~
+        git clone --recursive --depth 1 https://github.com/myriadrf/LimeSuite.git
+        cd LimeSuite
+        git checkout stable
+        mkdir builddir && cd builddir
+        cmake ../
+        make -j4
+        sudo make install
+        sudo ldconfig
+        cd ~
+        rm -rf LimeSuite
+    fi
+
+    # PothosCore
+    if [ ! -e /usr/local/bin/PothosFlow ]; then
+        sudo apt-get install libnuma-dev cmake g++ libpython-dev python-numpy qtbase5-dev libqt5svg5-dev libqt5opengl5-dev libqwt-qt5-dev portaudio19-dev libjack-jackd2-dev graphviz
+
+        cd ~
+        git clone --recursive --depth 1 https://github.com/pothosware/PothosCore.git
+    
+        cd PothosCore
+        #update to latest master branch
+        git pull origin master
+
+        #update submodules to latest tracking branch
+        git submodule update --init --recursive --remote
+
+        mkdir build
+        cd build
+        cmake ..
+        make -j4
+        sudo make install
+        sudo ldconfig #needed on debian systems
+        PothosUtil --self-tests
+        # PothosFlow #launches GUI designer
+        cd ~
+        rm -rf PothosCore
     fi
 
     pip2 install $pip2
