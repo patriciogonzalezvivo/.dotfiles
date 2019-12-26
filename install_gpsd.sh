@@ -9,8 +9,8 @@
 os=$(uname)
 arq=$(uname -m)
 
-# apps_common="lsof tcpdump dstat iotop fail2ban nmap ngrep aircrack-ng "
-# apps_osx="nc "
+# apps_common=""
+# apps_osx=""
 apps_linux_debian_common="gpsd gpsd-clients python-gps chrony"
 apps_linux_arch="gpsd gpsd-clients python-gps chrony"   
 

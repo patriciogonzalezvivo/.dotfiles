@@ -9,7 +9,7 @@ apps_linux_debian_common=""
 apps_linux_rpi=""
 apps_linux_ubuntu="nvidia-driver-435 nvidia-cuda-toolkit "
 apps_linux_arch=""
-python_common_modules="numpy scipy"
+python_common_modules="numpy scipy cupy"
 python_tensorflow_modules="tensorflow tensorflow-gpu"
 
 
@@ -66,12 +66,25 @@ if [ $os == "Linux" ]; then
         bash Anaconda3-2019.03-Linux-x86_64.sh
     fi
 
+    # cuSignal
+    if [ ! -d ~/.conda/envs/cusignal  ]; then
+        cd ~/Desktop
+        git clone --recursive --depth 1 https://github.com/rapidsai/cusignal.git
+        conda env create -f cusignal_conda_env.yml
+        conda activate cusignal
+        python setup.py install
+        python3 setup.py install
+    fi
+
     sudo pip3 install $python_common_modules
     sudo pip3 install $python_tensorflow_modules
 
-    conda create --name ml
-    conda activate ml
-    conda install tensorflow-gpu
-    conda install pytorch torchvision cuda92 -c pytorch
+    # Machine Learning 
+    if [ ! -d ~/.conda/envs/ml  ]; then
+        conda create --name ml
+        conda activate ml
+        conda install tensorflow-gpu
+        conda install pytorch torchvision cuda92 -c pytorch
+    fi
 fi
 
