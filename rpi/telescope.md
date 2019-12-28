@@ -20,12 +20,14 @@ cd .dotfiles
 
 ```bash
 ./install_core.sh
+cd rpi
 ./install_telescope.sh
 ```
 
 Optional
 
 ``` bash
+cd ..
 ./install_tools.sh
 ./install_net.sh
 ./install_sdr.sh
