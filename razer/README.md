@@ -90,7 +90,7 @@ PIP changed their entry point so /usr/bin/pip3 is broke.
 sudo vim /usr/bin/pip3
 ```
 
-Change `pip._internal import main` to `from pip._internal.main import main`
+Change `from pip._internal import main` to `from pip._internal.main import main`
 
 
 ```bash
@@ -99,22 +99,10 @@ sudo apt update
 sudo apt install howdy
 ```
 
-## Compiling Blender to use the GTX Nvidia card
-
-https://wiki.blender.org/wiki/Building_Blender
+## Installing Blender 2.82 with CUDA support and native python
 
 ```bash
-sudo apt update
-sudo apt install build-essential git subversion cmake libx11-dev libxxf86vm-dev libxcursor-dev libxi-dev libxrandr-dev libxinerama-dev
-mkdir ~/blender-git
-cd ~/blender-git
-git clone http://git.blender.org/blender.git
-```
-
-For Intel and AMD x86-64 Linux systems, precompiled library dependencies are available. These are the quickest way to get a feature complete Blender build, and can be download as follows. 
-
-```bash
-mkdir ~/blender-git/lib
-cd ~/blender-git/lib
-svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64
+sudo add-apt-repository ppa:thomas-schiex/blender
+sudo apt-get update
+sudo apt-get install blender
 ```

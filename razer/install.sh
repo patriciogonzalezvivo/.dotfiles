@@ -34,11 +34,18 @@ if [ ! -e /usr/bin/openrazer-daemon ]; then
 fi
 
 if [ -e /usr/bin/apt ]; then
+    # Install the rest of OpenRazer files
     sudo add-apt-repository ppa:openrazer/stable
     sudo apt install openrazer-meta
 
+    # Install PolyChromatic
     sudo add-apt-repository ppa:polychromatic/stable
     sudo apt update
     sudo apt install polychromatic
+
+    # Install Blender 2.82 with CUDA and native python support
+    sudo add-apt-repository ppa:thomas-schiex/blender
+    sudo apt-get update
+    sudo apt-get install blender
 fi
 
