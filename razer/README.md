@@ -27,6 +27,8 @@ cd .dotfiles
 ./install_tools.sh
 ./install_net.sh
 ./install_python.sh
+cd razer
+./install.sh
 ```
 
 
