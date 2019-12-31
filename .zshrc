@@ -52,6 +52,12 @@ if [ -d ~/gocode ]; then
     export PATH=$GOPATH/bin:$PATH
 fi
 
+# Cargo
+if [ -d ~/.cargo/bin ]; then
+    export PATH=~/.cargo/bin:$PATH
+fi
+
+
 # NVM ( Node.js )
 if [ -d ~/.nvm ]; then
     export NVM_DIR="/home/patricio/.nvm"
@@ -66,3 +72,19 @@ fi
 if [ -f /usr/bin/code ]; then
     alias vs="code --disable-gpu"
 fi
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/opt/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+
