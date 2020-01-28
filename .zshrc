@@ -59,7 +59,7 @@ fi
 
 # Local bin
 if [ -d ~/.local/bin ]; then
-    export PATH=~/.local/bin:$PATH
+    #export PATH=~/.local/bin:$PATH
 fi
 
 # NVM ( Node.js )
