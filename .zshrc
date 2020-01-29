@@ -63,7 +63,7 @@ fi
 #fi
 
 # ANACONDA
-if [ -d /opt/anaconda3/bin]; then
+if [ -d /opt/anaconda3/bin ]; then
     export PATH=/opt/anaconda3/bin:$PATH
 fi
 
