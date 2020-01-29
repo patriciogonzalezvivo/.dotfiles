@@ -63,9 +63,9 @@ fi
 #fi
 
 # ANACONDA
-if [ -d /opt/anaconda3/bin ]; then
-    export PATH=/opt/anaconda3/bin:$PATH
-fi
+#if [ -d /opt/anaconda3/bin ]; then
+#    export PATH=/opt/anaconda3/bin:$PATH
+#fi
 
 # NVM ( Node.js )
 if [ -d ~/.nvm ]; then
