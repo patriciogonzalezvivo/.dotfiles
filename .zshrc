@@ -22,7 +22,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # User configuration
-export PATH=/usr/local/sbin:/usr/local/bin:/anaconda3/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export CF_LIBRARY_PATH=$CF_LIBRARY_PATH:/usr/local/include
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export INCLUDE=/usr/local/include:/usr/include
@@ -58,8 +58,13 @@ if [ -d ~/.cargo/bin ]; then
 fi
 
 # Local bin
-if [ -d ~/.local/bin ]; then
+#if [ -d ~/.local/bin ]; then
     #export PATH=~/.local/bin:$PATH
+#fi
+
+# ANACONDA
+if [ -d /opt/anaconda3/bin]; then
+    export PATH=/opt/anaconda3/bin:$PATH
 fi
 
 # NVM ( Node.js )
