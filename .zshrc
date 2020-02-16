@@ -57,15 +57,10 @@ if [ -d ~/.cargo/bin ]; then
     export PATH=~/.cargo/bin:$PATH
 fi
 
-# Local bin
-#if [ -d ~/.local/bin ]; then
-    #export PATH=~/.local/bin:$PATH
-#fi
-
 # ANACONDA
-#if [ -d /opt/anaconda3/bin ]; then
-#    export PATH=/opt/anaconda3/bin:$PATH
-#fi
+# if [ -d /opt/anaconda3/bin ]; then
+#     export PATH=$PATH:/opt/anaconda3/bin
+# fi
 
 # NVM ( Node.js )
 if [ -d ~/.nvm ]; then
