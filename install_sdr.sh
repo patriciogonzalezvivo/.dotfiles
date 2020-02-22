@@ -7,7 +7,7 @@ apps_common="cmake python3 minimodem swig gr-osmosdr golang"
 apps_osx="libusb sox rtlsdr librtlsdr hackrf airspy inspectrum" # gr-baz gr-fosphor libmirisdr"
 apps_linux_debian_common="build-essential pkg-config libusb-1.0-0 libusb-1.0-0-dev libhackrf0 libhackrf-dev libsoxr0 libsoxr-dev libairspy0 libairspy-dev libmirisdr0 libmidirsdr-dev ibconfig-dev libjpeg-dev libconfig9 libboost-dev sqlite pyqt4-dev-tools liblog4cpp5-dev gnuradio-dev qsstv ax25-apps ax25mail-utils ax25-node ax25-tools ax25-xtools soundmodem libfftw3-dev qt5-default"
 apps_linux_rpi="direwolf "
-apps_linux_ubuntu="librtlsdr-dev libliquied-dev python3-numpy python3-psutil python3-zmq python3-pyqt5 g++ libpython3-dev python3-pip cython3"
+apps_linux_ubuntu="librtlsdr-dev libliquied-dev python3-numpy python3-psutil python3-zmq python3-pyqt5 g++ libpython3-dev python3-pip cython3 libboost-all-dev swig"
 apps_linux_arch="cmake swig gnuradio gnuradio-osmosdr gnuradio-companion"
 
 pip2="Cheetah lxml matplotlib numpy scipy docutils sphinx pyrtlsdr"
@@ -85,6 +85,20 @@ if [ $os == "Linux" ]; then
         cd ~
         rm -rf gr-osmosdr
     fi
+
+    if [ ! -e /usr/local/ ]; then
+        git clone https://github.com/myriadrf/gr-limesdr.git
+        cd gr-limesdr
+        git checkout gr-3.8
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+        sudo ldconfig
+        cd ~
+        rm -rf gr-limesdr
+    fi 
 
     # if [ ! -e /usr/local/share/gnuradio/grc/blocks/baz_any.xml ]; then
     #     cd ~
