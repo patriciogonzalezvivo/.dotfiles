@@ -57,11 +57,6 @@ if [ -d ~/.cargo/bin ]; then
     export PATH=~/.cargo/bin:$PATH
 fi
 
-# ANACONDA
-# if [ -d /opt/anaconda3/bin ]; then
-#     export PATH=$PATH:/opt/anaconda3/bin
-# fi
-
 # NVM ( Node.js )
 if [ -d ~/.nvm ]; then
     export NVM_DIR="/home/patricio/.nvm"
@@ -77,6 +72,19 @@ fi
 if [ -f /usr/bin/code ]; then
     alias vs="code --disable-gpu"
 fi
+
+if [ -f /usr/bin/gnuradio-companion ]; then
+    alias gnuradio-companion="env PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages gnuradio-companion"
+fi
+
+#if [ -d /usr/local/lib/python3/dist-packages ]; then
+#    export PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages
+#fi
+
+# ANACONDA
+# if [ -d /opt/anaconda3/bin ]; then
+#     export PATH=$PATH:/opt/anaconda3/bin
+# fi
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!

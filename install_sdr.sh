@@ -86,7 +86,7 @@ if [ $os == "Linux" ]; then
         rm -rf gr-osmosdr
     fi
 
-    if [ ! -e /usr/local/ ]; then
+    if [ ! -e /usr/local/share/gnuradio/grc/blocks/limesdr_source.block.yml ]; then
         git clone https://github.com/myriadrf/gr-limesdr.git
         cd gr-limesdr
         git checkout gr-3.8
@@ -98,6 +98,19 @@ if [ $os == "Linux" ]; then
         sudo ldconfig
         cd ~
         rm -rf gr-limesdr
+    fi 
+
+    if [ ! -e /usr/local/share/gnuradio/grc/blocks/fosphor.tree.yml ]; then
+        git clone --depth 1 https://github.com/osmocom/gr-fosphor.git   
+        cd gr-fosphor
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+        sudo ldconfig
+        cd ~
+        rm -rf gr-fosphor
     fi 
 
     # if [ ! -e /usr/local/share/gnuradio/grc/blocks/baz_any.xml ]; then
