@@ -208,6 +208,19 @@ if [ $os == "Linux" ]; then
         rm -rf PothosCore
     fi
 
+    if [ ! -e /usr/local/bin/gqrx ]; then
+        cd ~
+        git clone https://github.com/csete/gqrx.git
+        cd gqrx
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+        cd ~
+        rm -rf gqrx
+    fi
+
     sudo pip2 install $pip2
     sudo pip3 install $pip3
 
