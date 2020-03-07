@@ -70,7 +70,8 @@ if [ $os == "Linux" ]; then
     if [ ! -d ~/.conda/envs/cusignal  ]; then
         cd ~/Desktop
         git clone --recursive --depth 1 https://github.com/rapidsai/cusignal.git
-        conda env create -f cusignal_conda_env.yml
+        cd cusignal
+        conda env create -f conda/environments/cusignal_full.yml
         conda activate cusignal
         python setup.py install
         python3 setup.py install
