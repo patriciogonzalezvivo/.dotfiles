@@ -7,7 +7,7 @@ apps_common="cmake python3 minimodem swig gr-osmosdr golang"
 apps_osx="libusb sox rtlsdr librtlsdr hackrf airspy inspectrum" # gr-baz gr-fosphor libmirisdr"
 apps_linux_debian_common="build-essential pkg-config libusb-1.0-0 libusb-1.0-0-dev libhackrf0 libhackrf-dev libsoxr0 libsoxr-dev libairspy0 libairspy-dev libmirisdr0 libmidirsdr-dev ibconfig-dev libjpeg-dev libconfig9 libboost-dev sqlite pyqt4-dev-tools liblog4cpp5-dev gnuradio-dev qsstv ax25-apps ax25mail-utils ax25-node ax25-tools ax25-xtools soundmodem libfftw3-dev qt5-default"
 apps_linux_rpi="direwolf "
-apps_linux_ubuntu="librtlsdr-dev libhackrf-dev"
+apps_linux_ubuntu="librtlsdr-dev libliquied-dev python3-numpy python3-psutil python3-zmq python3-pyqt5 g++ libpython3-dev python3-pip cython3 libboost-all-dev swig"
 apps_linux_arch="cmake swig gnuradio gnuradio-osmosdr gnuradio-companion"
 
 pip2="Cheetah lxml matplotlib numpy scipy docutils sphinx pyrtlsdr"
@@ -18,6 +18,8 @@ if [ $os == "Linux" ]; then
     # DEBIAN LINUX distributions
     if [ -e /usr/bin/apt ]; then
 
+        sudo add-apt-repository ppa:gnuradio/gnuradio-releases
+        
         sudo apt-get update
         sudo apt-get upgrade
         sudo apt-get install $apps_common $apps_linux_debian_common
@@ -35,11 +37,6 @@ if [ $os == "Linux" ]; then
 
         else
             sudo apt-get install $apps_linux_ubuntu
-
-            # Universal Radio Hacker
-            sudo apt-get update
-            sudo apt-get install python3-numpy python3-psutil python3-zmq python3-pyqt5 g++ libpython3-dev python3-pip cython3
-            sudo pip3 install urh
         fi
 
     # ARCH LINUX distribution
@@ -89,18 +86,45 @@ if [ $os == "Linux" ]; then
         rm -rf gr-osmosdr
     fi
 
-    if [ ! -e /usr/local/share/gnuradio/grc/blocks/baz_any.xml ]; then
-        cd ~
-        git clone --depth 1 --recursive git://github.com/balint256/gr-baz.git
-        cd gr-baz
+    if [ ! -e /usr/local/share/gnuradio/grc/blocks/limesdr_source.block.yml ]; then
+        git clone https://github.com/myriadrf/gr-limesdr.git
+        cd gr-limesdr
+        git checkout gr-3.8
         mkdir build
-        cmake ../
+        cd build
+        cmake ..
         make
         sudo make install
         sudo ldconfig
         cd ~
-        rm -rf gr-baz
-    fi
+        rm -rf gr-limesdr
+    fi 
+
+    if [ ! -e /usr/local/share/gnuradio/grc/blocks/fosphor.tree.yml ]; then
+        git clone --depth 1 https://github.com/osmocom/gr-fosphor.git   
+        cd gr-fosphor
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+        sudo ldconfig
+        cd ~
+        rm -rf gr-fosphor
+    fi 
+
+    # if [ ! -e /usr/local/share/gnuradio/grc/blocks/baz_any.xml ]; then
+    #     cd ~
+    #     git clone --depth 1 --recursive git://github.com/balint256/gr-baz.git
+    #     cd gr-baz
+    #     mkdir build
+    #     cmake ../
+    #     make
+    #     sudo make install
+    #     sudo ldconfig
+    #     cd ~
+    #     rm -rf gr-baz
+    # fi
 
     # inspectrum
     if [ ! -e /usr/local/bin/inspectrum ]; then 
@@ -184,8 +208,21 @@ if [ $os == "Linux" ]; then
         rm -rf PothosCore
     fi
 
-    pip2 install $pip2
-    pip3 install $pip3
+    if [ ! -e /usr/local/bin/gqrx ]; then
+        cd ~
+        git clone https://github.com/csete/gqrx.git
+        cd gqrx
+        mkdir build
+        cd build
+        cmake ..
+        make
+        sudo make install
+        cd ~
+        rm -rf gqrx
+    fi
+
+    sudo pip2 install $pip2
+    sudo pip3 install $pip3
 
 elif [ $os == "Darwin" ]; then
 
