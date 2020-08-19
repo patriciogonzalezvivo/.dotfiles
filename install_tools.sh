@@ -8,7 +8,9 @@ apps_osx=" "
 apps_linux_debian_common=" "
 apps_linux_rpi=" "
 apps_linux_ubuntu="inkscape gimp nvidia-cuda-toolkit nvidia-modprobe "
-apps_linux_arch="inkscape blender gimp "   
+apps_linux_arch="inkscape blender gimp "
+
+projects=(hilma hypatia)
 
 #   Install Applications
 #   ===============================================================
@@ -78,3 +80,26 @@ elif [ $os == "Darwin" ]; then
     brew upgrade
     brew install $apps_common $apps_osx
 fi
+
+if [ -d ~/Desktop ]; then
+    cd ~/Desktop
+fi
+
+if [ ! -e /usr/local/bin/glslViewer ]; then
+    git clone https://github.com/patriciogonzalezvivo/glslViewer.git
+    cd glslViewer
+    make
+    sudo make install
+    cd ..
+fi
+
+for i in ${projects[@]}; do
+    git clone --depth 1 --recursive git@github.com:patriciogonzalezvivo/${i}.git
+    cd ${i}
+    mkdir build
+    cd build
+    cmake ..
+    make
+    sudo make install
+    cd ../..
+done
