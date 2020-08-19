@@ -10,7 +10,7 @@ apps_linux_rpi=" "
 apps_linux_ubuntu="inkscape gimp nvidia-cuda-toolkit nvidia-modprobe "
 apps_linux_arch="inkscape blender gimp "
 
-projects=(hilma hypatia)
+projects=(hilma hypatia midigyver)
 
 #   Install Applications
 #   ===============================================================
