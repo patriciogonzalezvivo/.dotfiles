@@ -80,3 +80,5 @@ fi
 #if [ -d /usr/local/lib/python3/dist-packages ]; then
 #    export PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages
 #fi
+# added by travis gem
+[ ! -s /home/patricio/.travis/travis.sh ] || source /home/patricio/.travis/travis.sh

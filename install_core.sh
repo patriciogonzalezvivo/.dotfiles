@@ -4,12 +4,11 @@ os=$(uname)
 arq=$(uname -m)
 
 apps_common="tmux mc htop vim zsh wget curl pkg-config "
-apps_osx="git sshfs glslang"
-apps_linux_debian_common="git-core"
+apps_osx="git sshfs glslang "
+apps_linux_debian_common="git-core "
 apps_linux_rpi="avahi-daemon "
-apps_linux_ubuntu="nodejs npm gnome-tweak-tool chrome-gnome-shell exfat-fuse exfat-utils"
-apps_linux_arch="git code glslang npm base-devel yajl gnome-shell-extension-unite"
-apps_snap="simplenote spotify "
+apps_linux_ubuntu="exfat-fuse exfat-utils "
+apps_linux_arch="git code glslang base-devel yajl "
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim .zsh)
 
@@ -32,12 +31,6 @@ if [ $os == "Linux" ]; then
         # regular Ubuntu distro
         else
             sudo apt-get install $apps_linux_ubuntu
-
-            sudo add-apt-repository ppa:alexlarsson/flatpak
-            sudo apt update
-            sudo apt install flatpak
-            sudo apt install gnome-software-plugin-flatpak
-            flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
         fi
     
     # ARCH LINUX distribution
@@ -45,6 +38,15 @@ if [ $os == "Linux" ]; then
 
         sudo pacman -Sy
         sudo pacman -S $apps_common $apps_linux_arch    
+    fi
+
+    # Power efficiency
+    if [ ! -e /usr/local/bin/auto-cpufreq ]; then 
+        git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+        cd auto-cpufreq && sudo ./auto-cpufreq-installer
+        sudo auto-cpufreq --install
+        cd ..
+        rm -rf auto-cpufreq
     fi
 
 elif [ $os == "Darwin" ]; then
@@ -57,10 +59,6 @@ elif [ $os == "Darwin" ]; then
     brew update
     brew upgrade
     brew install $apps_common $apps_osx
-fi
-
-if [ -e /usr/bin/snap ]; then
-    snap install $apps_snap
 fi
 
 #   Install Config files

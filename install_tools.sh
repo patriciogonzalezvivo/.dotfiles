@@ -7,7 +7,7 @@ apps_common="imagemagick ffmpeg "
 apps_osx=" "
 apps_linux_debian_common=" "
 apps_linux_rpi=" "
-apps_linux_ubuntu="inkscape blender gimp nvidia-cuda-toolkit nvidia-modprobe "
+apps_linux_ubuntu="inkscape gimp nvidia-cuda-toolkit nvidia-modprobe "
 apps_linux_arch="inkscape blender gimp "   
 
 #   Install Applications
@@ -29,6 +29,12 @@ if [ $os == "Linux" ]; then
         # on Ubuntu distro
         else
             sudo apt install $apps_linux_ubuntu
+
+            # Blender
+            if [ ! -e /usr/bin/blender ]; then
+                sudo add-apt-repository ppa:thomas-schiex/blender
+                sudo apt-get update && sudo apt install blender
+            fi
 
             # OBS Studio
             if [ ! -e /usr/bin/obs ]; them

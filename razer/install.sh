@@ -8,6 +8,9 @@ apps_linux_arch=""
 #   Install Applications
 #   ===============================================================
 
+.././install_core.sh
+.././install_theme.sh
+
 # DEBIAN LINUX distributions
 if [ -e /usr/bin/apt ]; then
 
@@ -21,6 +24,7 @@ elif [ -e /usr/bin/pacman ]; then
     sudo pacman -Sy
     sudo pacman -S $apps_common $apps_linux_arch    
 fi
+
 
 if [ ! -e /usr/bin/openrazer-daemon ]; then
     cd ~
@@ -42,10 +46,5 @@ if [ -e /usr/bin/apt ]; then
     sudo add-apt-repository ppa:polychromatic/stable
     sudo apt update
     sudo apt install polychromatic
-
-    # Install Blender 2.82 with CUDA and native python support
-    sudo add-apt-repository ppa:thomas-schiex/blender
-    sudo apt-get update
-    sudo apt-get install blender
 fi
 

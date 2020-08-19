@@ -1,8 +1,28 @@
 #!/bin/bash
 
 os=$(uname)
-        
+
+apps_linux_ubuntu="gnome-tweak-tool chrome-gnome-shell"
+apps_linux_arch="gnome-shell-extension-unite"
+
+
 if [ $os == "Linux" ]; then
+
+    # DEBIAN LINUX distributions
+    if [ -e /usr/bin/apt ]; then
+
+        # updata and install basics
+        sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get install $apps_linux_debian_common
+
+    # ARCH LINUX distribution
+    elif [ -e /usr/bin/pacman ]; then
+
+        sudo pacman -Sy
+        sudo pacman -S $apps_linux_arch    
+    fi
+
     cd ~/.dotfiles
     git pull
     git submodule init
