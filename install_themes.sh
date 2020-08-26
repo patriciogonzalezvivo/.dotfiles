@@ -2,7 +2,7 @@
 
 os=$(uname)
 
-apps_linux_ubuntu="gnome-tweak-tool chrome-gnome-shell"
+apps_linux_ubuntu="libglib2.0-dev gnome-tweak-tool chrome-gnome-shell "
 apps_linux_arch="gnome-shell-extension-unite"
 
 
@@ -14,7 +14,12 @@ if [ $os == "Linux" ]; then
         # updata and install basics
         sudo apt-get update
         sudo apt-get upgrade
-        sudo apt-get install $apps_linux_debian_common
+        sudo apt-get install $apps_linux_ubuntu
+
+        # Black background on Ubuntu 20.04 Focal
+        git clone https://github.com/PRATAP-KUMAR/focalgdm3.git
+        sudo ./focalgdm3/focalgdm3 --set
+        rm -rf focalgdm3
 
     # ARCH LINUX distribution
     elif [ -e /usr/bin/pacman ]; then

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=X-GNOME-Metatheme
-Name=Obscure-Green
-Comment=Easy On The Eyes Gnome Theme
-Encoding=UTF-8
-
-[X-GNOME-Metatheme]
-GtkTheme=Obscure-Green
-ButtonLayout=:minimize,maximize,close
