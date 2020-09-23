@@ -62,8 +62,9 @@ if [ $os == "Linux" ]; then
     # Anaconda
     if [ ! -e /opt/anaconda3/bin/conda ]; then
         cd ~
-        curl -O https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
-        bash Anaconda3-2019.03-Linux-x86_64.sh
+        # curl https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh --output anaconda.sh
+        curl https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh --output anaconda.sh
+        bash anaconda.sh
     fi
 
     # cuSignal
