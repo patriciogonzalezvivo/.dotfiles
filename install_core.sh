@@ -72,10 +72,10 @@ fi
 #   update files and submodules
 cd ~/.dotfiles
 git pull
-git submodule init
-git submodule update
-git submodule foreach git checkout master
-git submodule foreach git pull
+git submodule update --init .vim/bundle/Vundle.vim
+cd  .vim/bundle/Vundle.vim 
+git checkout master
+git pull
 
 #   go to root path
 cd ~
