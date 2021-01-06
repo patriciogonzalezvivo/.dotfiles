@@ -27,6 +27,7 @@ cd .dotfiles
 ./install_tools.sh
 ./install_net.sh
 ./install_python.sh
+./install_CUDA.sh
 cd razer
 ./install.sh
 ```
@@ -36,7 +37,7 @@ cd razer
 
 This little tool will let you choose between Intel only/ Nvidia only or on-demand Nvidia (or offloading) with [mate-optimus](https://github.com/ubuntu-mate/mate-optimus)
 
-First make sure you are running your `NVIDA 435` drivers.
+First make sure you are running your `NVIDA 450` drivers.
 
 ```bash
 sudo apt install mate-optimus

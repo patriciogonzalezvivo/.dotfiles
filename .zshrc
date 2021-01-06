@@ -57,6 +57,15 @@ if [ -d ~/.cargo/bin ]; then
     export PATH=~/.cargo/bin:$PATH
 fi
 
+# Android
+if [ -d /opt/Android ]; then
+    ANDROID_HOME="/opt/Android"
+    JAVA_HOME="$ANDROID_HOME/JDK/jdk-11.0.8+10"
+    export JAVA_HOME
+    export ANDROID_HOME
+    export PATH="$JAVA_HOME/bin:$ANDROID_HOME/cmdline-tools/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+fi
+
 # NVM ( Node.js )
 if [ -d ~/.nvm ]; then
     export NVM_DIR="/home/patricio/.nvm"

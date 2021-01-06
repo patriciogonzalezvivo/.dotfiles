@@ -43,6 +43,11 @@ if [ -e /usr/bin/apt ]; then
     sudo apt install openrazer-meta
 
     # Install PolyChromatic
+./install.sh
+```
+
+
+## Intel/Nvidia Hybrid mode
     sudo add-apt-repository ppa:polychromatic/stable
     sudo apt update
     sudo apt install polychromatic

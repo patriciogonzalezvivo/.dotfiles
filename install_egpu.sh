@@ -5,7 +5,7 @@ arq=$(uname -m)
 
 apps_common=""
 apps_linux_debian_common=""
-apps_linux_ubuntu="nvidia-driver-440 nvidia-cuda-toolkit mate-optimus"
+apps_linux_ubuntu="mate-optimus"
 
 if [ $os == "Linux" ]; then
     # DEBIAN LINUX distributions
@@ -23,18 +23,6 @@ if [ $os == "Linux" ]; then
         sudo apt update
         sudo apt install egpu-switcher
         sudo egpu-switcher setup
-    fi
-
-    # NVTOP
-    if [ ! -e /usr/local/bin/nvtop ]; then  
-        cd ~
-        git clone --recursive --depth 1 https://github.com/Syllo/nvtop.git
-        mkdir -p nvtop/build && cd nvtop/build
-        cmake ..
-        make
-        sudo make install
-        cd ~ 
-        rm -rf nvtop
     fi
 
 fi

@@ -4,14 +4,14 @@ os=$(uname)
 arq=$(uname -m)
 
 apps_common=""
-apps_osx=""
 apps_linux_debian_common=""
 apps_linux_rpi=""
-apps_linux_ubuntu="nvidia-driver-440 nvidia-cuda-toolkit "
+apps_linux_ubuntu="nvidia-driver-450 nvidia-utils-450 nvidia-cuda-toolkit "
 apps_linux_arch=""
 python_common_modules="numpy scipy cupy"
 python_tensorflow_modules="tensorflow tensorflow-gpu"
 
+./install_nvidia.sh
 
 if [ $os == "Linux" ]; then
     # DEBIAN LINUX distributions
@@ -37,6 +37,12 @@ if [ $os == "Linux" ]; then
 
         # regular Ubuntu distro
         else
+
+            # this is for Ubuntun 20.04 specific
+            sudo wget -O /etc/apt/preferences.d/cuda-repository-pin-600 https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin 
+            sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
+            sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+
             sudo apt-get install $apps_linux_ubuntu
         fi
 
@@ -47,8 +53,8 @@ if [ $os == "Linux" ]; then
         sudo pacman -S $apps_common $apps_linux_arch    
     fi
 
-    # NVTOP
-    if [ ! -e /usr/local/bin/nvtop ]; then  
+    # NVTOP from source (if it's not present)
+    if [ ! -e /usr/local/bin/nvtop && ! -e /usr/bin/nvtop ]; then  
         cd ~
         git clone --recursive --depth 1 https://github.com/Syllo/nvtop.git
         mkdir -p nvtop/build && cd nvtop/build
