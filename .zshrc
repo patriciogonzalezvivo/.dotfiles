@@ -42,8 +42,8 @@ if [ -d /Library/TeX/texbin ]; then
 fi
 
 # FB
-if [ -d /opt/facebook ]; then
-    export PATH=/opt/facebook/bin:/opt/facebook/hg/bin:$PATH
+if [ -d /opt/homebrew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # GO
