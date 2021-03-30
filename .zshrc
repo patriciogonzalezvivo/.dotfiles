@@ -1,3 +1,17 @@
+# User configuration
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export CF_LIBRARY_PATH=$CF_LIBRARY_PATH:/usr/local/include
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export INCLUDE=/usr/local/include:/usr/include
+export LIBDIR=/usr/local/lib:/usr/lib
+export MANPATH=/usr/local/man:$MANPATH
+#export HOMEBREW_BUILD_FROM_SOURCE=1
+
+# MAC
+if [ -d /opt/homebrew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gallois"
 plugins=(git git-extras tmux python pip vscode colored-man-pages themes sudo)
@@ -21,15 +35,6 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-# User configuration
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-export CF_LIBRARY_PATH=$CF_LIBRARY_PATH:/usr/local/include
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export INCLUDE=/usr/local/include:/usr/include
-export LIBDIR=/usr/local/lib:/usr/lib
-export MANPATH=/usr/local/man:$MANPATH
-#export HOMEBREW_BUILD_FROM_SOURCE=1
-
 source $ZSH/oh-my-zsh.sh
 
 # MacLatex
@@ -39,11 +44,6 @@ fi
 
 if [ -d /Library/TeX/texbin ]; then
     export PATH=/Library/TeX/texbin:$PATH
-fi
-
-# FB
-if [ -d /opt/homebrew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # GO
