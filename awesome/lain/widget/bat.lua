@@ -33,8 +33,8 @@ local function factory(args)
     local notify      = args.notify or "on"
     local full_notify = args.full_notify or notify
     local n_perc      = args.n_perc or { 5, 15 }
-    local batteries   = args.batteries or (args.battery and {args.battery}) or {}
-    local ac          = args.ac or "AC0"
+    local batteries   = args.batteries or (args.battery and {args.battery}) or {"axp20x-battery"}
+    local ac          = args.ac or "axp20x-usb"
     local settings    = args.settings or function() end
 
     function bat.get_batteries()
