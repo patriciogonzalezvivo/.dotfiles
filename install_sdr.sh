@@ -28,11 +28,11 @@ if [ $os == "Linux" ]; then
         if [ $arq == "armv6l" ] || [ $arq == "armv7l" ]; then
             sudo apt-get install $apps_linux_rpi
         
-            cd ~
-            git clone --depth 1 --recursive git@github.com:F5OEO/rpitx.git
-            cd rpitx
-            ./install.sh
-            cd ..
+            # cd ~
+            # git clone --depth 1 --recursive git@github.com:F5OEO/rpitx.git
+            # cd rpitx
+            # ./install.sh
+            # cd ..
             # rm -rf rpitx
 
         else
@@ -183,45 +183,45 @@ if [ $os == "Linux" ]; then
     fi
 
     # PothosCore
-    if [ ! -e /usr/local/bin/PothosFlow ]; then
-        sudo apt-get install libnuma-dev cmake g++ libpython-dev python-numpy qtbase5-dev libqt5svg5-dev libqt5opengl5-dev libqwt-qt5-dev portaudio19-dev libjack-jackd2-dev graphviz
+    # if [ ! -e /usr/local/bin/PothosFlow ]; then
+    #    sudo apt-get install libnuma-dev cmake g++ libpython-dev python-numpy qtbase5-dev libqt5svg5-dev libqt5opengl5-dev libqwt-qt5-dev portaudio19-dev libjack-jackd2-dev graphviz
 
-        cd ~
-        git clone --recursive --depth 1 https://github.com/pothosware/PothosCore.git
+    #    cd ~
+    #    git clone --recursive --depth 1 https://github.com/pothosware/PothosCore.git
     
-        cd PothosCore
-        #update to latest master branch
-        git pull origin master
+    #    cd PothosCore
+    #    #update to latest master branch
+    #    git pull origin master
 
-        #update submodules to latest tracking branch
-        git submodule update --init --recursive --remote
+    #    #update submodules to latest tracking branch
+    #    git submodule update --init --recursive --remote
 
-        mkdir build
-        cd build
-        cmake ..
-        make -j4
-        sudo make install
-        sudo ldconfig #needed on debian systems
-        PothosUtil --self-tests
-        # PothosFlow #launches GUI designer
-        cd ~
-        rm -rf PothosCore
-    fi
+    #    mkdir build
+    #    cd build
+    #    cmake ..
+    #    make 
+    #    sudo make install
+    #    sudo ldconfig #needed on debian systems
+    #    PothosUtil --self-tests
+    #    # PothosFlow #launches GUI designer
+    #    cd ~
+    #    rm -rf PothosCore
+    #fi
 
-    if [ ! -e /usr/local/bin/gqrx ]; then
-        cd ~
-        git clone https://github.com/csete/gqrx.git
-        cd gqrx
-        mkdir build
-        cd build
-        cmake ..
-        make
-        sudo make install
-        cd ~
-        rm -rf gqrx
-    fi
+    #if [ ! -e /usr/local/bin/gqrx ]; then
+    #    cd ~
+    #    git clone https://github.com/csete/gqrx.git
+    #    cd gqrx
+    #    mkdir build
+    #    cd build
+    #    cmake ..
+    #    make
+    #    sudo make install
+    #    cd ~
+    #    rm -rf gqrx
+    #fi
 
-    sudo pip2 install $pip2
+    #sudo pip2 install $pip2
     sudo pip3 install $pip3
 
 elif [ $os == "Darwin" ]; then
