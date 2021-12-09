@@ -438,13 +438,34 @@ globalkeys = mytable.join(
               {description = "show weather", group = "widgets"}),
 
     -- Screen brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+ --   awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
+ --             {description = "+10%", group = "hotkeys"}),
+ --   awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+ --             {description = "-10%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("rpi-backlight up") end, 
+              {description = "+10%", group = "hotkeys"}), 
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("rpi-backlight down") end, 
+              {description = "-10%", group = "hotkeys"}),
+    awful.key({ altkey  	}, "Right", function () os.execute("rpi-backlight up") end,
               {description = "+10%", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+    awful.key({ altkey, 	}, "Left", function () os.execute("rpi-backlight down") end,
               {description = "-10%", group = "hotkeys"}),
 
+
     -- ALSA volume control
-    awful.key({ altkey }, "Up",
+   awful.key({}, "XF86AudioRaiseVolume", 
+	function ()
+            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume up", group = "hotkeys"}),   
+   awful.key({}, "XF86AudioLowerVolume", 
+	function ()
+            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            beautiful.volume.update()
+        end,
+        {description = "volume down", group = "hotkeys"}), 
+   awful.key({ altkey }, "Up",
         function ()
             os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
