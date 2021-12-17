@@ -2,7 +2,7 @@
 
 .././install_themes.sh
 
-sudo apt-get install awesome
+sudo apt-get install awesome wpagui
 
 xfconf-query -c xsettings -p /Net/ThemeName -s "Numix"
 xfconf-query -c xfwm4 -p /general/theme -s "Numix"
