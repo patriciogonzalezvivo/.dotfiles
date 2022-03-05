@@ -86,6 +86,10 @@ if [ -f /usr/bin/gnuradio-companion ]; then
     alias gnuradio-companion="env PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages gnuradio-companion"
 fi
 
+if [ -f /home/patricio/Applications/Blender/blender ]; then
+   alias Blender="PYTHONPATH=/usr/local/lib/python3.8/dist-packages/ /home/patricio/Applications/Blender/./blender --python-use-system-env"
+fi
+
 #if [ -d /usr/local/lib/python3/dist-packages ]; then
 #    export PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages
 #fi
