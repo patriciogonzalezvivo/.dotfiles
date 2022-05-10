@@ -9,12 +9,17 @@ export MANPATH=/usr/local/man:$MANPATH
 
 # MAC
 if [ -d /opt/homebrew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    # eval "$(/opt/homebrew/bin/brew shellenv)"
+    export INCLUDE=/opt/homebrew/include:$INCLUDE
+    export LIBDIR=/opt/homebrew/lib:$LIBDIR
+    export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
+    export CF_LIBRARY_PATH=/opt/homebrew/Frameworks/Python.framework/Versions/3.9/include/python3.9:/opt/homebrew/include:$CF_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/opt/homebrew/Frameworks/Python.framework/Versions/3.9/lib:/opt/homebrew/lib:$LD_LIBRARY_PATH
 fi
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gallois"
-plugins=(git git-extras tmux python pip vscode colored-man-pages themes sudo)
+plugins=(git git-extras tmux python pip brew vscode colored-man-pages themes sudo)
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -100,3 +105,19 @@ fi
 #fi
 # added by travis gem
 [ ! -s /home/patricio/.travis/travis.sh ] || source /home/patricio/.travis/travis.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/patricio/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/patricio/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/patricio/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/patricio/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

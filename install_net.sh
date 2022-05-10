@@ -43,7 +43,7 @@ if [ $os == "Linux" ]; then
 elif [ $os == "Darwin" ]; then
     
     # ON MacOX 
-    if [ ! -e /usr/local/bin/brew ]; then
+    if test ! -e "/usr/local/bin/brew"  &&  test ! -e "/opt/homebrew/bin/brew" ; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 

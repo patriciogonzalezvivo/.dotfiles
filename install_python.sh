@@ -56,7 +56,7 @@ elif [ $os == "Darwin" ]; then
     
     # ON MacOX 
     
-    if [ ! -e /usr/local/bin/brew ]; then
+    if test ! -e "/usr/local/bin/brew"  &&  test ! -e "/opt/homebrew/bin/brew" ; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
 
@@ -65,11 +65,11 @@ elif [ $os == "Darwin" ]; then
     brew install $apps_osx
 fi
 
-if [ -e /usr/local/bin/pip ]; then
+if test -e "/usr/local/bin/pip" || test -e "/opt/homebrew/bin/pip" ; then
     pip install $python_global
 fi
 
-if [ -e /usr/local/bin/pip3 ]; then
+if test -e "/usr/local/bin/pip3" || test -e "/opt/homebrew/bin/pip3"; then
     pip3 install $python_global
 fi
 
@@ -80,10 +80,10 @@ if [ ! -d ~/.virtualenvs/base ]; then
     workon base
 fi
 
-if [ -e /usr/local/bin/pip ]; then
+if test -e "/usr/local/bin/pip" || test -e "/opt/homebrew/bin/pip"; then
     pip install $python_base_modules --user
 fi
 
-if [ -e /usr/local/bin/pip3 ]; then
+if test -e "/usr/local/bin/pip3" || test -e "/opt/homebrew/bin/pip3"; then
     pip3 install $python_base_modules --user
 fi
