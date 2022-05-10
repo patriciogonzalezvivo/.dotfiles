@@ -106,3 +106,4 @@ let g:NERDCustomDelimiters = {
     \ 'vect' : { 'left': '//', 'leftAlt': '/', 'rightAlt': '/' },
     \ 'frag' : { 'left': '//', 'leftAlt': '/', 'rightAlt': '/' },
     \ }
+
