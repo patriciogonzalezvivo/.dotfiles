@@ -23,3 +23,5 @@
 	smudge = git-lfs smudge --skip -- %f
 [color]
 	ui = auto
+[init]
+	defaultBranch = main

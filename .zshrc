@@ -91,33 +91,18 @@ if [ -f /usr/bin/gnuradio-companion ]; then
     alias gnuradio-companion="env PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages gnuradio-companion"
 fi
 
-if [ -f /home/patricio/Applications/Blender/blender ]; then
-   alias Blender="PYTHONPATH=/usr/local/lib/python3.8/dist-packages/ /home/patricio/Applications/Blender/./blender --python-use-system-env"
+if [ -f ~/Applications/Blender/blender ]; then
+   alias Blender="PYTHONPATH=/usr/local/lib/python3.10/dist-packages ~/Applications/Blender/./blender --python-use-system-env"
 fi
+
+#if [ -d /usr/local/lib/python3/dist-packages ]; then
+#    export PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages
+#fi
 
 if [ -d /usr/local/cuda ]; then
    export PATH="/usr/local/cuda/bin:$PATH"
    export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"
 fi
 
-#if [ -d /usr/local/lib/python3/dist-packages ]; then
-#    export PYTHONPATH=$PYTHONPATH:/usr/lib/python3/dist-packages:/usr/local/lib/python3/dist-packages
-#fi
-# added by travis gem
-[ ! -s /home/patricio/.travis/travis.sh ] || source /home/patricio/.travis/travis.sh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/patricio/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/patricio/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/Users/patricio/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/patricio/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
