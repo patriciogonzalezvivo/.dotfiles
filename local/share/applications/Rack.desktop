@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=VCV Rack
+GenericName=VCV Rack
+Type=Application
+Exec=Rack %f
+Terminal=false
+Icon=/home/patricio/Applications/Rack/dist/Rack2Free/res/icon.png

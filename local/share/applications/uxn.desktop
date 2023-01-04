@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0.0
+Name=Uxn
+GenericName=uxn
+Comment=uxn
+Type=Application
+Exec=uxnemu %f
+Icon=/usr/local/share/icons/uxn.svg
+Terminal=false
+Hide=true
+MimeType=application/rom;
+Categories=virtual;stack;machine;

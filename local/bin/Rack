@@ -1,0 +1,16 @@
+#!/bin/bash
+
+path="/home/patricio/Applications/Rack/"
+if [ -z "$1" ]; then
+pushd $path
+./Rack
+popd
+
+else
+
+filename=$(realpath $1)
+pushd $path
+./Rack $filename
+popd
+
+fi

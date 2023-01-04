@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Orca
+GenericName=Orca
+Type=Application
+Exec=orca %f
+Terminal=true
+Icon=/usr/local/share/pixmaps/orca.png
