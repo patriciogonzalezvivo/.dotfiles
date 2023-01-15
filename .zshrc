@@ -57,6 +57,11 @@ if [ -d ~/gocode ]; then
     export PATH=$GOPATH/bin:$PATH
 fi
 
+# Conda
+if [ -d ~/miniconda3 ]; then
+    export PATH="$HOME/miniconda3/bin:$PATH"
+fi
+
 # Cargo
 if [ -d ~/.cargo/bin ]; then
     export PATH=~/.cargo/bin:$PATH

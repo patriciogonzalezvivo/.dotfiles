@@ -1,0 +1,15 @@
+--- acp6x-mach.c.ori	2022-12-12 09:45:40.076477587 +0100
++++ acp6x-mach.c	2022-12-12 09:47:30.727483991 +0100
+@@ -213,6 +213,13 @@
+ 			DMI_MATCH(DMI_PRODUCT_NAME, "Alienware m17 R5 AMD"),
+ 		}
+ 	},
++	{
++		.driver_data = &acp6x_card,
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, "Razer"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "Blade 14 (2022) - RZ09-0427"),
++		}
++	},
+ 	{}
+ };
