@@ -59,7 +59,7 @@ fi
 
 # Conda
 if [ -d ~/miniconda3 ]; then
-    export PATH="$HOME/miniconda3/bin:$PATH"
+    alias conda_init="source $HOME/miniconda3/bin/activate"
 fi
 
 # Cargo
