@@ -59,7 +59,7 @@ fi
 
 # Conda
 if [ -d ~/miniconda3 ]; then
-    alias conda_init="source $HOME/miniconda3/bin/activate"
+    source $HOME/miniconda3/bin/activate
 fi
 
 # Cargo
@@ -88,7 +88,8 @@ if [ -f ~/.localrc ]; then
 fi 
 
 # VSCode
-if [ -f /usr/bin/code ]; then
+if command -v code &> /dev/null
+then
     alias vs="code --disable-gpu"
 fi
 
@@ -97,7 +98,8 @@ if [ -f /usr/bin/gnuradio-companion ]; then
 fi
 
 if [ -f ~/Applications/Blender/blender ]; then
-   alias Blender="PYTHONPATH=/usr/local/lib/python3.10/dist-packages ~/Applications/Blender/./blender --python-use-system-env"
+   alias Blender_python="PYTHONPATH=/usr/local/lib/python3.10/dist-packages ~/Applications/Blender/./blender --python-use-system-env"
+   alias Blender="~/Applications/Blender/./blender"
 fi
 
 #if [ -d /usr/local/lib/python3/dist-packages ]; then
