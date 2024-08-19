@@ -11,7 +11,8 @@ apps_linux_ubuntu="librtlsdr-dev libliquied-dev python3-numpy python3-psutil pyt
 apps_linux_arch="cmake swig gnuradio gnuradio-osmosdr gnuradio-companion"
 
 pip2="Cheetah lxml matplotlib numpy scipy docutils sphinx pyrtlsdr"
-pip3="urh pyrtlsdr"
+pip3="pyrtlsdr"
+# pip3="urh pyrtlsdr"
 
 if [ $os == "Linux" ]; then
 
@@ -71,47 +72,47 @@ if [ $os == "Linux" ]; then
 		rm -rf rtl-sdr
 	fi
 
-    #   Install GR blocks
-    #   ===============================================================
-    if [ ! -e /usr/local/bin/osmocom_fft ]; then
-        cd ~
-        git clone --depth 1 --recursive git://git.osmocom.org/gr-osmosdr
-        cd gr-osmosdr/
-        mkdir build
-        cmake ../
-        make
-        sudo make install
-        sudo ldconfig
-        cd ~
-        rm -rf gr-osmosdr
-    fi
+    # #   Install GR blocks
+    # #   ===============================================================
+    # if [ ! -e /usr/local/bin/osmocom_fft ]; then
+    #     cd ~
+    #     git clone --depth 1 --recursive git://git.osmocom.org/gr-osmosdr
+    #     cd gr-osmosdr/
+    #     mkdir build
+    #     cmake ../
+    #     make
+    #     sudo make install
+    #     sudo ldconfig
+    #     cd ~
+    #     rm -rf gr-osmosdr
+    # fi
 
-    if [ ! -e /usr/local/share/gnuradio/grc/blocks/limesdr_source.block.yml ]; then
-        git clone https://github.com/myriadrf/gr-limesdr.git
-        cd gr-limesdr
-        git checkout gr-3.8
-        mkdir build
-        cd build
-        cmake ..
-        make
-        sudo make install
-        sudo ldconfig
-        cd ~
-        rm -rf gr-limesdr
-    fi 
+    # if [ ! -e /usr/local/share/gnuradio/grc/blocks/limesdr_source.block.yml ]; then
+    #     git clone https://github.com/myriadrf/gr-limesdr.git
+    #     cd gr-limesdr
+    #     git checkout gr-3.8
+    #     mkdir build
+    #     cd build
+    #     cmake ..
+    #     make
+    #     sudo make install
+    #     sudo ldconfig
+    #     cd ~
+    #     rm -rf gr-limesdr
+    # fi 
 
-    if [ ! -e /usr/local/share/gnuradio/grc/blocks/fosphor.tree.yml ]; then
-        git clone --depth 1 https://github.com/osmocom/gr-fosphor.git   
-        cd gr-fosphor
-        mkdir build
-        cd build
-        cmake ..
-        make
-        sudo make install
-        sudo ldconfig
-        cd ~
-        rm -rf gr-fosphor
-    fi 
+    # if [ ! -e /usr/local/share/gnuradio/grc/blocks/fosphor.tree.yml ]; then
+    #     git clone --depth 1 https://github.com/osmocom/gr-fosphor.git   
+    #     cd gr-fosphor
+    #     mkdir build
+    #     cd build
+    #     cmake ..
+    #     make
+    #     sudo make install
+    #     sudo ldconfig
+    #     cd ~
+    #     rm -rf gr-fosphor
+    # fi 
 
     # if [ ! -e /usr/local/share/gnuradio/grc/blocks/baz_any.xml ]; then
     #     cd ~
@@ -140,47 +141,47 @@ if [ $os == "Linux" ]; then
 	    rm -rf inspectrum
     fi
 
-    # SoapySDR
-    if [ ! -e /usr/local/bin/SoapySDRUtil ]; then
-        sudo apt-get install cmake g++ libpython-dev python-numpy swig
+    # # SoapySDR
+    # if [ ! -e /usr/local/bin/SoapySDRUtil ]; then
+    #     sudo apt-get install cmake g++ libpython-dev python-numpy swig
 
-        cd ~
-        git clone --recursive --depth 1 https://github.com/pothosware/SoapySDR.git
-        cd SoapySDR
-        mkdir build
-        cd build
-        cmake ..
-        make -j4
-        sudo make install
-        sudo ldconfig #needed on debian systems
-        SoapySDRUtil --info
-        cd ~
-        rm -rf SoapySDR
-    fi
+    #     cd ~
+    #     git clone --recursive --depth 1 https://github.com/pothosware/SoapySDR.git
+    #     cd SoapySDR
+    #     mkdir build
+    #     cd build
+    #     cmake ..
+    #     make -j4
+    #     sudo make install
+    #     sudo ldconfig #needed on debian systems
+    #     SoapySDRUtil --info
+    #     cd ~
+    #     rm -rf SoapySDR
+    # fi
 
-    # LimeSDR 
-    if [ ! -e /usr/local/bin/LimeSuiteGUI ]; then
-        #install core library and build dependencies
-        sudo apt-get install git g++ cmake libsqlite3-dev
+    # # LimeSDR 
+    # if [ ! -e /usr/local/bin/LimeSuiteGUI ]; then
+    #     #install core library and build dependencies
+    #     sudo apt-get install git g++ cmake libsqlite3-dev
 
-        #install hardware support dependencies
-        sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
+    #     #install hardware support dependencies
+    #     sudo apt-get install libsoapysdr-dev libi2c-dev libusb-1.0-0-dev
 
-        #install graphics dependencies
-        sudo apt-get install libwxgtk3.0-dev freeglut3-dev
+    #     #install graphics dependencies
+    #     sudo apt-get install libwxgtk3.0-dev freeglut3-dev
 
-        cd ~
-        git clone --recursive --depth 1 https://github.com/myriadrf/LimeSuite.git
-        cd LimeSuite
-        git checkout stable
-        mkdir builddir && cd builddir
-        cmake ../
-        make -j4
-        sudo make install
-        sudo ldconfig
-        cd ~
-        rm -rf LimeSuite
-    fi
+    #     cd ~
+    #     git clone --recursive --depth 1 https://github.com/myriadrf/LimeSuite.git
+    #     cd LimeSuite
+    #     git checkout stable
+    #     mkdir builddir && cd builddir
+    #     cmake ../
+    #     make -j4
+    #     sudo make install
+    #     sudo ldconfig
+    #     cd ~
+    #     rm -rf LimeSuite
+    # fi
 
     # PothosCore
     # if [ ! -e /usr/local/bin/PothosFlow ]; then
