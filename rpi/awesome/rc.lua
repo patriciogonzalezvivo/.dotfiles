@@ -1,4 +1,4 @@
--- {{{ Required libraries
+-- Required libraries
 
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
@@ -19,7 +19,7 @@ local mytable       = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 -- Error handling
 --[[    Check if awesome encountered an error during startup and fell back to
-        another config (This code will only ever execute for the fallback config)]]
+        another config (This code will only ever execute for the fallback config) ]]
 if awesome.startup_errors then
     naughty.notify {
         preset = naughty.config.presets.critical,
@@ -59,18 +59,15 @@ end
 -- Autostart programs
 --run_once({ "urxvtd", "unclutter -root" }) -- comma-separated entries
 run_once({"xrandr --output DSI-1 --rotate right"})
-run_once({ "compton" })
+--run_once({ "compton" })
 
 -- This function implements the XDG autostart specification
---[[
 awful.spawn.with_shell(
     'if (xrdb -query | grep -q "^awesome\\.started:\\s*true$"); then exit; fi;' ..
     'xrdb -merge <<< "awesome.started:true";' ..
     -- list each of your autostart commands, followed by ; inside single quotes, followed by ..
     'dex --environment Awesome --autostart --search-paths "$XDG_CONFIG_DIRS/autostart:$XDG_CONFIG_HOME/autostart"' -- https://github.com/jceb/dex
 )
---]]
-
 
 -- Themes
 local themes = {
@@ -103,7 +100,7 @@ local editor        = os.getenv("EDITOR") or "vim"
 local browser       = "firefox"
 local vi_focus      = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev    = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
-local window_titlebar = true
+local window_titlebar = false
 
 
 -- Naughty presets
@@ -135,7 +132,7 @@ awful.layout.layouts = {
     awful.layout.suit.spiral,
     -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    -- awful.layout.suit.max.fullscreen,
+    awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
     awful.layout.suit.floating,
     --awful.layout.suit.corner.nw,
@@ -196,6 +193,7 @@ awful.util.tasklist_buttons = mytable.join(
      awful.button({ }, 4, function() awful.client.focus.byidx(1) end),
      awful.button({ }, 5, function() awful.client.focus.byidx(-1) end)
 )
+
 lain.layout.termfair.nmaster           = 3
 lain.layout.termfair.ncol              = 1
 lain.layout.termfair.center.nmaster    = 3
@@ -278,7 +276,6 @@ end)
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
 
 -- Mouse bindings
-
 root.buttons(mytable.join(
     awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
@@ -286,7 +283,6 @@ root.buttons(mytable.join(
 ))
 
 -- Key bindings
-
 globalkeys = mytable.join(
     -- Destroy all notifications
     awful.key({ "Control",           }, "space", function() naughty.destroy_all_notifications() end,
@@ -549,15 +545,10 @@ globalkeys = mytable.join(
     awful.key({ modkey }, "v", function () awful.spawn.with_shell("xsel -b | xsel") end,
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
-    -- User programs
-    --[[ awful.key({ modkey }, "q", function () awful.spawn(browser) end,
-              {description = "run browser", group = "launcher"}),
-
-    -- Default
-    --[[ Menubar
+    --Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
-    --]]
+              {description = "show the menubar", group = "launcher"}),
+
     --dmenu
     awful.key({ modkey }, "r", function ()
                                     os.execute(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
@@ -578,31 +569,6 @@ globalkeys = mytable.join(
             'run', rofi_theme))
         end,
         {description = "show run", group = "launcher"})
-    -- awful.key({ modkey }, "c", function ()
-    --         os.execute(string.format("rofi -show %s -theme %s",
-    --         'ssh', rofi_theme))
-    --     end,
-    --     {description = "show rofi", group = "launcher"})
-    --
-    -- Prompt
-    --awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
-    --          {description = "run prompt", group = "launcher"}),
-    -- awful.key({ modkey }, "r", function () awful.util.spawn("dmenu_run") end,
-    --          {description = "lunch dmenu", group = "launcher"} ),
-
-
-    --[[
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run {
-                    prompt       = "Run Lua code: ",
-                    textbox      = awful.screen.focused().mypromptbox.widget,
-                    exe_callback = awful.util.eval,
-                    history_path = awful.util.get_cache_dir() .. "/history_eval"
-                  }
-              end,
-              {description = "lua execute prompt", group = "awesome"})
-    --]]
 )
 
 clientkeys = mytable.join(
@@ -614,7 +580,7 @@ clientkeys = mytable.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift",   }, "q",      function (c) c:kill()                         end,
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
@@ -737,7 +703,7 @@ awful.rules.rules = {
     },
 
     -- Add titlebars to normal clients and dialogs
-    { rule_any = { type = { "dialog", "normal" } },
+    { rule_any = { type = { "normal" } },
       properties = { titlebars_enabled = window_titlebar } },
 
     { rule_any = { type = { "dialog" } },
@@ -780,6 +746,16 @@ awful.rules.rules = {
 }
 
 -- Signals
+
+-- Hide all title bar that are not floating windows
+client.connect_signal("property::floating", function(c)
+    if c.floating then
+        awful.titlebar.show(c)
+    else
+        awful.titlebar.hide(c)
+    end
+end)
+
 
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
