@@ -17,6 +17,11 @@ if [ -d /opt/homebrew ]; then
     export LD_LIBRARY_PATH=/opt/homebrew/Frameworks/Python.framework/Versions/3.9/lib:/opt/homebrew/lib:$LD_LIBRARY_PATH
 fi
 
+if [ -d ~/.local/bin ]; then
+    export PATH=~/.local/bin:$PATH
+fi
+
+
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gallois"
 plugins=(git git-extras tmux python pip brew vscode colored-man-pages themes sudo)
