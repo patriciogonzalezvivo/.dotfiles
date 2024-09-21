@@ -62,9 +62,18 @@ if [ -d ~/miniconda3 ]; then
     source $HOME/miniconda3/bin/activate
 fi
 
+# Local bin
+if [ -d ~/.local/bin ]; then
+     export PATH=~/.local/bin:$PATH
+fi
+
 # Cargo
 if [ -d ~/.cargo/bin ]; then
     export PATH=~/.cargo/bin:$PATH
+fi
+
+if [ -d /opt/gradle ]; then
+    export PATH=$PATH:/opt/gradle/bin
 fi
 
 # Android
