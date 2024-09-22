@@ -58,7 +58,14 @@ fi
 
 # If is a remote install install this repository
 if [ ! -d ~/.dotfiles ]; then
-    git clone --depth 1 --recursive https://github.com/patriciogonzalezvivo/.dotfiles.git
+    git clone --depth 1 --recursive https://github.com/patriciogonzalezvivo/.dotfiles.git ~/.dotfiles
+fi
+
+if 
+
+if [ ! -d ~/.fzf ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    # ~/.fzf/install
 fi
 
 #   update files and submodules
@@ -75,7 +82,8 @@ cd ~
 if [ ! -d .oh-my-zsh ]; then
     chsh -s $(which zsh)
     curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-    git clone https://github.com/valentinocossar/vscode.git .oh-my-zsh/custom/plugins/plugins/vscode
+    git clone --depth 1 https://github.com/valentinocossar/vscode.git .oh-my-zsh/custom/plugins/vscode
+    git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git .oh-my-zsh/custom/plugins/fzf-zsh-plugin
 fi
 
 #   clean files

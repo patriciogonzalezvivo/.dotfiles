@@ -24,7 +24,7 @@ fi
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="gallois"
-plugins=(git git-extras tmux python pip brew vscode colored-man-pages themes sudo)
+plugins=(git git-extras tmux python pip brew vscode colored-man-pages themes sudo fzf-zsh-plugin)
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -127,3 +127,5 @@ fi
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

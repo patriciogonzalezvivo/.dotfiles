@@ -3,6 +3,7 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
 " VUNDLE
 Plugin 'VundleVim/Vundle.vim'
 
@@ -11,19 +12,26 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kaicataldo/material.vim'
 
+" Filemanager
+" Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+
 " Sublime-like
 Plugin 'terryma/vim-multiple-cursors'
+
+
+" Coding
+" Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'airblade/vim-gitgutter'
 
 " FILE formats
 Plugin 'tpope/vim-markdown'
 
-" Coding
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'tikhomirov/vim-glsl'
 " Plugin 'beyondmarc/glsl.vim'
+
 
 call vundle#end()
 
