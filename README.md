@@ -2,7 +2,7 @@
 ## Install with out cloning
 
 ```bash
-curl -L https://rawgit.com/patriciogonzalezvivo/.dotfiles/master/install_core.sh | bash   
+curl -L https://rawgit.com/patriciogonzalezvivo/.dotfiles/main/install_core.sh | bash   
 ```
 
 ## Install by cloning this repo
@@ -36,8 +36,6 @@ cd .dotfiles
 * `install_sdr.sh`: Software Define Radio apps
 
 * `install_python.sh`: Install Python with env sandboxes
-
-* `install_themes.sh`: Install Linux X11 Themes
 
 * `install_of.sh`: Install OpenFrameworks, my project and the addons I use the most
 
