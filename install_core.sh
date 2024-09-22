@@ -3,7 +3,7 @@
 os=$(uname)
 arq=$(uname -m)
 
-apps_common="tmux mc htop vim zsh wget curl cmake pkg-config kitty"
+apps_common="tmux mc htop vim zsh wget curl cmake pkg-config kitty fzf mpv"
 apps_osx="git sshfs glslang "
 apps_linux_debian_common="git-core "
 apps_linux_rpi="avahi-daemon "
@@ -11,7 +11,7 @@ apps_linux_ubuntu="exfat-fuse exfat-utils ranger mediainfo"
 apps_linux_arch="git code glslang base-devel yajl "
 config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
 config_folders=(.vim .zsh .tmux)
-config_subfolder=(kitty)
+config_subfolder=(kitty nvim)
 
 #   Install Applications
 #   ===============================================================
@@ -39,15 +39,6 @@ if [ $os == "Linux" ]; then
 
         sudo pacman -Sy
         sudo pacman -S $apps_common $apps_linux_arch    
-    fi
-
-    # Power efficiency
-    if [ ! -e /usr/local/bin/auto-cpufreq ]; then 
-        git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-        cd auto-cpufreq && sudo ./auto-cpufreq-installer
-        sudo auto-cpufreq --install
-        cd ..
-        rm -rf auto-cpufreq
     fi
 
 elif [ $os == "Darwin" ]; then
