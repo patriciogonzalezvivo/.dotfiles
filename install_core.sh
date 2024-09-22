@@ -3,13 +3,13 @@
 os=$(uname)
 arq=$(uname -m)
 
-apps_common="tmux mc htop vim zsh wget curl cmake pkg-config kitty fzf mpv"
+apps_common="tmux mc htop vim zsh wget curl cmake pkg-config kitty mpv"
 apps_osx="git sshfs glslang "
 apps_linux_debian_common="git-core "
 apps_linux_rpi="avahi-daemon "
 apps_linux_ubuntu="exfat-fuse exfat-utils ranger mediainfo"
 apps_linux_arch="git code glslang base-devel yajl "
-config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources)
+config_files=(.gitconfig .tmux.conf .zshrc .vimrc .Xresources .fzf.zsh )
 config_folders=(.vim .zsh .tmux)
 config_subfolder=(kitty nvim)
 
@@ -61,8 +61,6 @@ if [ ! -d ~/.dotfiles ]; then
     git clone --depth 1 --recursive https://github.com/patriciogonzalezvivo/.dotfiles.git ~/.dotfiles
 fi
 
-if 
-
 if [ ! -d ~/.fzf ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     # ~/.fzf/install
@@ -105,15 +103,19 @@ if [ ! -d .mutt ]; then
 fi
 
 for i in ${config_files[@]}; do
-    ln -s .dotfiles/${i} ${i}
+    echo ${i}
+    ln -s ~/.dotfiles/${i} ${i}
 done
 
 for i in ${config_folders[@]}; do
-    ln -s .dotfiles/${i} ${i}
+    echo ${i}
+    ln -s ~/.dotfiles/${i} ${i}
 done
 
 for i in ${config_subfolder[@]}; do
+    echo ${i}
     ln -s ~/.dotfiles/${i} ~/.config/${i}
 done
 
 vim +PluginInstall +qall
+
