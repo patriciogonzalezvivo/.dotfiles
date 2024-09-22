@@ -3,7 +3,7 @@
 os=$(uname)
 arq=$(uname -m)
 
-apps_common="tmux mc htop vim zsh wget curl cmake pkg-config kitty mpv"
+apps_common="tmux mc htop vim zsh wget curl cmake pkg-config kitty mpv stow"
 apps_osx="git sshfs glslang "
 apps_linux_debian_common="git-core "
 apps_linux_rpi="avahi-daemon "

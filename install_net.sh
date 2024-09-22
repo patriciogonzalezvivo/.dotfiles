@@ -40,6 +40,16 @@ if [ $os == "Linux" ]; then
         sudo pacman -S $apps_linux_arch    
     fi
 
+    # Install driver for TP-Link TL-WN722N
+    cd ~
+    git clone git@github.com:aircrack-ng/rtl8188eus.git
+    cd rtl8188eus
+    make && sudo make install
+    echo 'blacklist r8188eu' | sudo tee -a '/etc/modprobe.d/realtek.conf'
+    echo 'blacklist rtl8xxxu' | sudo tee -a '/etc/modprobe.d/realtek.conf'
+    rmmod r8188eu rtl8xxxu 8188eu
+    modprobe 8188eu
+
 elif [ $os == "Darwin" ]; then
     
     # ON MacOX 
