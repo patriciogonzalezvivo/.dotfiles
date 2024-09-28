@@ -64,7 +64,7 @@ fi
 
 # Conda
 if [ -d ~/miniconda3 ]; then
-# source $HOME/miniconda3/bin/activate  # commented out by conda initialize
+    source $HOME/miniconda3/bin/activate  # commented out by conda initialize
 fi
 
 # Local bin
